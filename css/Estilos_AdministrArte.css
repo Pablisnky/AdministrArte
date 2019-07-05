@@ -1,0 +1,10 @@
+.a_1{
+	display: inline-block;
+	margin-top: 5%;
+}
+.fieldset_1{
+	width: 12%;
+	display: table-cell;
+	vertical-align: top;
+	margin-right: 2%;
+}
