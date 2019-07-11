@@ -1,22 +1,22 @@
-         $(function(){
-    	$("#Calendario_CM").datepicker({
-    		//minDate:0,//impide seleccionar dias pasados
+$(function(){
+   	$("#Calendario_CM").datepicker({
+   		//minDate:0,//impide seleccionar dias pasados
 
         dateFormat: 'dd-mm-yy',
 
-      //beforeShowDay:$.datepicker.noWeekends//impide seleccionar fines de semana
+      	//beforeShowDay:$.datepicker.noWeekends//impide seleccionar fines de semana
 
-        beforeShowDay: function(date){//impide seleccionar los Domingos, 0=domingo,1=lunes,2=marets......
-          var day = date.getDay();
-          return [(day != 0), ''];
-          }
-    	});
-    	});
+        // beforeShowDay: function(date){//impide seleccionar los Domingos, 0=domingo,1=lunes,2=marets......
+        //   var day = date.getDay();
+        //   return [(day != 0), ''];
+        //   }
+   	});
+});
 
- 	    $(function(){    
- 		//Array para dar formato en español
- 		$.datepicker.regional['es'] = 
-  		{
+$(function(){    
+	//Array para dar formato en español
+	$.datepicker.regional['es'] = 
+ 		{
   		closeText: 'Cerrar', 
   		prevText: 'Previo', 
   		nextText: 'Próximo',
@@ -32,6 +32,4 @@
 	  	dateFormat: 'yy/mm/dd', firstDay: 0, 
 	  	initStatus: 'Selecciona la fecha', isRTL: false};
 	 	$.datepicker.setDefaults($.datepicker.regional['es']);
-  	})
-
-     
+}) 
