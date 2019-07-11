@@ -25,10 +25,9 @@
 	</head>
 	<body onload="llamar_mostrarGastos()"><!--llamar_mostrarGastos() se encuentra en funciones_Ajax.js -->
 		<div id="Principal">
-			<h1 class="anula">AdministrArte</h1>
-			<p id="Texto_1" class="">Sistema de gestión administrativa de ImpresiónArte</p>
-            <!-- <img class="imagen_8" alt="Logo de ImpresiónArte" src="../images/LogoImpresionArte.jpg"> -->
-            <a href="../index.html">Regresar</a>
+			<?php 
+				include("../modulos/header.php");
+			?>
 		</div>
 		<div>
 			<form action="../controlador/recibe_gastos.php" method="POST" autocomplete="off">
@@ -42,7 +41,7 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td><input type="text"  name="fecha" id="Calendario_CM"></td>
+								<td><input type="text" name="fecha" id="Calendario_CM"></td>
 								<td><textarea name="descripcion"></textarea></td>
 								<td><input type="text" name="monto" id="Monto"></td>
 							</tr>
@@ -53,6 +52,6 @@
 			</form>
 		</div>
 		<div id="MostrarGastos"></div><!-- Muestra resultados de petición Ajax, trae respuesta de mostrarGastos.php-->
-
-
-
+		<a href="../index.php">Regresar</a>
+	</body>
+</html>
