@@ -15,5 +15,5 @@
 	$Insertar= "INSERT INTO gastos(Fecha, Descripcion, Monto) VALUES('$fechaFormatoMySQL', '$Descripcion', '$Monto')";
 	mysqli_query($Conexion, $Insertar) or die ( "Algo ha ido mal en la consulta a la base de datos");
 
-	header("Location:../vista/Gastos.php")
+	header("Location:../vista/Gastos.php");
 ?>
