@@ -1,34 +1,37 @@
-  var http_request = false;
-        var peticion= conexionAJAX();
+var http_request = false;
+    var peticion= conexionAJAX();
 
-         function conexionAJAX(){
-            http_request = false;
-            if (window.XMLHttpRequest){ // Mozilla, Safari,...
-                http_request = new XMLHttpRequest();
-                if (http_request.overrideMimeType){
-                    http_request.overrideMimeType('text/xml');
-                }
-            } else if (window.ActiveXObject){ // IE
-                try {
-                    http_request = new ActiveXObject("Msxml2.XMLHTTP");
-                } catch (e){
-                    try{
-                        http_request = new ActiveXObject("Microsoft.XMLHTTP");
-                    } catch (e) {}
-                }
+    function conexionAJAX(){
+        http_request = false;
+        if(window.XMLHttpRequest){ // Mozilla, Safari,...
+            http_request = new XMLHttpRequest();
+            if(http_request.overrideMimeType){
+                http_request.overrideMimeType('text/xml');
             }
-            if (!http_request){
-                alert('No es posible crear una instancia XMLHTTP');
-                return false;
+        }
+        else if(window.ActiveXObject){ // IE
+            try{
+                http_request = new ActiveXObject("Msxml2.XMLHTTP");
+            } 
+            catch(e){
+                try{
+                    http_request = new ActiveXObject("Microsoft.XMLHTTP");
+                } 
+                catch(e){}
             }
-          	// else{
-           //      alert("Instancia creada exitosamente ok");
-           //  }
-           return http_request;
-        } 
+        }
+        if(!http_request){
+            alert('No es posible crear una instancia XMLHTTP');
+            return false;
+        }
+       //else{
+            // alert("Instancia creada exitosamente ok");
+        // }
+        return http_request;
+    } 
 
-//--------------------------------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
 //Es llamada desde Gastos.php
     function llamar_mostrarGastos(){
         A=document.getElementById("Calendario_CM").value;//se inserta la fecha desde Gastos.php
@@ -49,11 +52,11 @@
         }
     }
 
-//--------------------------------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
 //Es llamada desde Cierre_Caja.php
     function llamar_mostrarCierreCaja(){
-        A=document.getElementById("Fecha").value;//se inserta la fecha desde Gastos.php
+        A=document.getElementById("Calendario_CM_2").value;//se inserta la fecha desde Cierre_Caja.php
         var url="../modelo/mostrarCierreCaja.php?val_1=" + A;
         http_request.open('GET',url,true);     
         peticion.onreadystatechange = respuesta_mostrarCierreCaja;
@@ -63,7 +66,7 @@
     function respuesta_mostrarCierreCaja(){
         if (peticion.readyState == 4){
             if (peticion.status == 200){
-                document.getElementById('MostrarGastos').innerHTML=peticion.responseText;//se recoje el resultado de la consulta
+                document.getElementById('MostrarCierreCaja').innerHTML=peticion.responseText;//se recoje el resultado de la consulta
             } 
             else{
                 alert('Hubo problemas con la petición.');
@@ -71,8 +74,8 @@
         }
     }
 
-//--------------------------------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
 //Es llamada desde Estampados.php
     function llamar_PresupuestoEstampado(){
         A=document.formEstam.color.value;//se inserta el color desde Estampados.php
@@ -90,6 +93,28 @@
         if (peticion.readyState == 4){
             if (peticion.status == 200){
                 document.getElementById('MostrarPresupuesto').innerHTML=peticion.responseText;//se recoje el resultado de la consulta
+            } 
+            else{
+                alert('Hubo problemas con la petición.');
+            }
+        }
+    }
+
+//-----------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
+//Es llamada desde Transferencias.php
+    function llamar_Transferencia(){
+        A=document.getElementById("EnvioAjax").value;//se inserta el Nombre desde Transferencias.php
+        var url="../modelo/mostrarTransferencia.php?val_1=" + A;
+        http_request.open('GET',url,true);     
+        peticion.onreadystatechange = respuesta_Transferencia;
+        peticion.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        peticion.send("null");
+    }                                                           
+    function respuesta_Transferencia(){
+        if (peticion.readyState == 4){
+            if (peticion.status == 200){
+                document.getElementById('MostrarTransferencia').innerHTML=peticion.responseText;//se recoje el resultado de la consulta
             } 
             else{
                 alert('Hubo problemas con la petición.');
