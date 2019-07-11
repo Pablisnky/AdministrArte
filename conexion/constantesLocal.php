@@ -5,7 +5,7 @@
 	define("HOSTING","localhost");
 
 	//Nombre de la base de datos
-	define("NOMBRE_BD", "AdministrarArte");//dbsistemapintorexaene2018
+	define("NOMBRE_BD", "AdministrarArte");
 
 	//Usuario de la base de datos
 	define("USUARIO", "root");
