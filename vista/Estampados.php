@@ -19,15 +19,14 @@
         <script src="../javascript/funcionesVarias.js"></script> 
         <script src="../javascript/funciones_Ajax.js"></script> 
 	</head>
-	<body onload="">
+	<body>
 		<div id="Principal">
-			<h1 class="anula">AdministrArte</h1>
-			<p id="Texto_1" class="">Sistema de gestión administrativa de ImpresiónArte</p>
-            <!-- <img class="imagen_8" alt="Logo de ImpresiónArte" src="../images/LogoImpresionArte.jpg"> -->
-            <h2>Presupuesto Estampados</h2>
+			<?php 
+				include("../modulos/header.php");
+			?>
 		</div>
 		<div>
-			<form action="" method="POST" autocomplete="off" name="formEstam" id="FormEstam">
+			<form autocomplete="off" name="formEstam" id="FormEstam">
 				<fieldset class="fieldset_1">
 					<legend>Indique color</legend>
 					<input type="radio" name="color" id="Amarillo" value="Amarillo">
@@ -106,26 +105,11 @@
 					<label>Indique tiempo (min)</label>
 					<input type="text" name="tiempo_varido" id="TiempoVariado" onclick="DesactivaRadio()">
 				</fieldset>
-					<br>
-					<input type="button" value="Calcular" onclick="llamar_PresupuestoEstampado()">
+				<br>
+				<input type="button" value="Calcular" onclick="llamar_PresupuestoEstampado()">
 			</form>
 		</div>
 		<div id="MostrarPresupuesto">Presupuesto</div><!-- Muestra resultados de petición Ajax, trae respuesta de mostrarGastos.php-->
-        <a class="a_1" href="../index.html">Regresar</a>
-
-<script type="text/javascript">
-	//Desactiva los radio button de tiempo en caso de que se dese introducir tiempo manualmente
-	function DesactivaRadio(){
-		var radios = document.formEstam.tiempo;
-
-		for(var i=0, iLen=radios.length; i<iLen; i++){
-	  		radios[i].checked = false;
-		} 
-	}
-
-	//Desactiva el input con tiempo manual en cas de activar tiempo desde radio butoom
-	function DesactivaTiemManual(){
-		document.getElementById("TiempoVariado").value="";	
-	}
-</script>
-
+		<a class="a_1" href="../index.php">Regresar</a>
+	</body>
+</html>
