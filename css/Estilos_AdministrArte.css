@@ -8,3 +8,11 @@
 	vertical-align: top;
 	margin-right: 2%;
 }
+.PopUp{
+	cursor: pointer;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	color: cornflowerblue;
+}
+.PopUp:hover{
+	font-weight:bold ;
+}
