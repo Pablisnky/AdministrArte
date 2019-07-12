@@ -20,39 +20,43 @@
 	</head>
 	<body>
 		<div id="Principal">
-			<h1 class="anula">AdministrArte</h1>
-			<p id="Texto_1" class="texto_1c" onclick="MostrarCaja_1()">Sistema de gestión administrativa de ImpresiónArte</p>
-            <!-- <img class="imagen_8" alt="Logo de ImpresiónArte" src="images/LogoImpresionArte.jpg"> -->
+			<?php 
+				include("modulos/header.php");
+			?>
 		</div>
 		<div>
 			<fieldset>
 				<legend>Presupuestos</legend>
-				<a href="" name="presupuesto" id="ImpresionPlotter" value="Impresion_Plotter">Impresion Plotter</a>
+				<a href="vista/Impresion.php?pagina=Impresión" name="presupuesto" id="ImpresionPlotter" value="Impresion_Plotter">Impresion Plotter</a>
 				<br>
-				<a href="vista/Estampados.php" name="presupuesto" id="EstampadoVinilo" value="Estampado_Vinilo">Estampado Vinilo textil</a>
+				<a href="vista/Estampados.php?pagina=Estampados" name="presupuesto" id="EstampadoVinilo" value="Estampado_Vinilo">Estampado Vinilo textil</a>
 				<br>
 				<a href="" name="presupuesto" id="CorteViniloAdhesivo" value="Corte_Vinilo_Adhesivo">Corte Vinilo Adhesivo</a>
 				<br>
 				<a href="" name="presupuesto" id="DibujoPlanos" value="Dibujo_Planos">Dibujo de planos</a>
 				<br>
 				<a href="" name="presupuesto" id="DiseñoGrafico" value="Diseño_Grafico">Diseño Grafico</a>
-				<br>
-				<a href="" name="presupuesto" id="Transferen" value="Transferencias">Transferencias</a>
 			</fieldset>
 
 			<fieldset>
 				<legend>Administración</legend>
-				<a href="vista/Cierre_Caja.php" name="administracion" id="CierreCaja" value="Cierre_Caja">Cierre Caja</a>
+				<a href="vista/Cierre_Caja.php?pagina=Cierre caja" id="CierreCaja" value="Cierre_Caja">Cierre Caja</a>
 				<br>
-				<a href="vista/Gastos.php" name="administracion" id="Gastos" value="Gastos">Gastos</a>
+				<a href="vista/Gastos.php?pagina=Gastos" id="Gastos" value="Gastos">Gasto diario</a>
 				<br>
-				<a href="" name="administracion" id="CuentasPagar" value="Cuentas_Pagar">Cuentas por pagar</a>
+				<a href="" id="CuentasPagar" value="Cuentas_Pagar">Cuentas por pagar</a>
 				<br>
-				<a href="" name="administracion" id="CuentasCobrar" value="Cuentas_Cobrar">Cuentas por cobrar</a>
+				<a href="" id="CuentasCobrar" value="Cuentas_Cobrar">Cuentas por cobrar</a>
 				<br>
-				<a href="" name="administracion" id="Pedidos" value="Pedidos">Pedidos</a>
+				<a href="" id="Inventario" value="Inventario">Inventario</a>
 				<br>
-				<a href="" name="administracion" id="Proveedores" value="Proveedores">Proveedores</a>
+				<a href="" id="Pedidos" value="Pedidos">Pedidos</a>
+				<br>
+				<a href="" id="Proveedores" value="Proveedores">Proveedores</a>
+			</fieldset>
+			<fieldset>
+				<legend>Otras tareas</legend>
+				<a href="vista/Transferencia.php?pagina=Transferencias" name="transferencia" id="Transferencia" value="Transferencias">Transferencias</a>
 			</fieldset>
 		</div>
 	</body>
