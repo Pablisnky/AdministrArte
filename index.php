@@ -44,6 +44,8 @@
 				<br>
 				<a class="a_2" href="vista/Gastos.php?pagina=Gastos" id="Gastos" value="Gastos">Gasto diario</a>
 				<br>
+				<a class="a_2" href="vista/Gastos.php?pagina=Gastos" id="Gastos" value="Costos_Fijos">Costos fijos</a>
+				<br>
 				<a class="a_2" href="vista/Cuentas_Pagar.php?pagina=CuentasPagar" id="CuentasPagar" value="Cuentas_Pagar">Cuentas por pagar</a>
 				<br>
 				<a class="a_2" href="" id="CuentasCobrar" value="Cuentas_Cobrar">Cuentas por cobrar</a>
