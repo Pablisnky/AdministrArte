@@ -13,7 +13,7 @@
 		<meta name="MobileOptimized" content="width">
 		<meta name="HandheldFriendly" content="true">
 
-		<link rel="stylesheet" type="text/css" href="css/EstilosAdministrArte.css">
+		<link rel="stylesheet" type="text/css" href="css/Estilos_AdministrArte.css">
         <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="css/MediaQuery_EstilosAdministrArte_Movil.css"> 
 
         <script src="javascript/funcionesVarias.js"></script> 
@@ -25,38 +25,38 @@
 			?>
 		</div>
 		<div>
-			<fieldset>
+			<fieldset class="fieldset_1">
 				<legend>Presupuestos</legend>
-				<a href="vista/Impresion.php?pagina=Impresión" name="presupuesto" id="ImpresionPlotter" value="Impresion_Plotter">Impresion Plotter</a>
+				<a class="a_2" href="vista/Impresion.php?pagina=Impresión" name="presupuesto" id="ImpresionPlotter" value="Impresion_Plotter">Impresion Plotter</a>
 				<br>
-				<a href="vista/Estampados.php?pagina=Estampados" name="presupuesto" id="EstampadoVinilo" value="Estampado_Vinilo">Estampado Vinilo textil</a>
+				<a class="a_2"  href="vista/Estampados.php?pagina=Estampados" name="presupuesto" id="EstampadoVinilo" value="Estampado_Vinilo">Estampado Vinilo textil</a>
 				<br>
-				<a href="" name="presupuesto" id="CorteViniloAdhesivo" value="Corte_Vinilo_Adhesivo">Corte Vinilo Adhesivo</a>
+				<a class="a_2"  href="" name="presupuesto" id="CorteViniloAdhesivo" value="Corte_Vinilo_Adhesivo">Corte Vinilo Adhesivo</a>
 				<br>
-				<a href="" name="presupuesto" id="DibujoPlanos" value="Dibujo_Planos">Dibujo de planos</a>
+				<a class="a_2"  href="" name="presupuesto" id="DibujoPlanos" value="Dibujo_Planos">Dibujo de planos</a>
 				<br>
-				<a href="" name="presupuesto" id="DiseñoGrafico" value="Diseño_Grafico">Diseño Grafico</a>
+				<a class="a_2"  href="" name="presupuesto" id="DiseñoGrafico" value="Diseño_Grafico">Diseño Grafico</a>
 			</fieldset>
 
-			<fieldset>
+			<fieldset class="fieldset_1">
 				<legend>Administración</legend>
-				<a href="vista/Cierre_Caja.php?pagina=Cierre caja" id="CierreCaja" value="Cierre_Caja">Cierre Caja</a>
+				<a class="a_2" href="vista/Cierre_Caja.php?pagina=Cierre caja" id="CierreCaja" value="Cierre_Caja">Cierre Caja</a>
 				<br>
-				<a href="vista/Gastos.php?pagina=Gastos" id="Gastos" value="Gastos">Gasto diario</a>
+				<a class="a_2" href="vista/Gastos.php?pagina=Gastos" id="Gastos" value="Gastos">Gasto diario</a>
 				<br>
-				<a href="vista/Cuentas_Pagar.php?pagina=CuentasPagar" id="CuentasPagar" value="Cuentas_Pagar">Cuentas por pagar</a>
+				<a class="a_2" href="vista/Cuentas_Pagar.php?pagina=CuentasPagar" id="CuentasPagar" value="Cuentas_Pagar">Cuentas por pagar</a>
 				<br>
-				<a href="" id="CuentasCobrar" value="Cuentas_Cobrar">Cuentas por cobrar</a>
+				<a class="a_2" href="" id="CuentasCobrar" value="Cuentas_Cobrar">Cuentas por cobrar</a>
 				<br>
-				<a href="" id="Inventario" value="Inventario">Inventario</a>
+				<a class="a_2" href="" id="Inventario" value="Inventario">Inventario</a>
 				<br>
-				<a href="" id="Pedidos" value="Pedidos">Pedidos</a>
+				<a class="a_2" href="" id="Pedidos" value="Pedidos">Pedidos</a>
 				<br>
-				<a href="" id="Proveedores" value="Proveedores">Proveedores</a>
+				<a class="a_2" href="" id="Proveedores" value="Proveedores">Proveedores</a>
 			</fieldset>
-			<fieldset>
+			<fieldset class="fieldset_1">
 				<legend>Otras tareas</legend>
-				<a href="vista/Transferencia.php?pagina=Transferencias" name="transferencia" id="Transferencia" value="Transferencias">Transferencias</a>
+				<a class="a_2" href="vista/Transferencia.php?pagina=Transferencias" name="transferencia" id="Transferencia" value="Transferencias">Transferencias</a>
 			</fieldset>
 		</div>
 	</body>
