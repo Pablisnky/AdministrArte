@@ -21,16 +21,17 @@ function calcular_Transferencia(){
 	var A= document.Form_Transferencia.montoGiro.value;
 	var B= document.getElementById("COP_Bs");
 	var C= document.getElementById("Bs_COP");
-	var E= document.getElementById("TasaProveedor").value;
+	var E= document.getElementById("TasaImpresionarte").value;
 	
 	if(B.checked==true){
-		var Transferir= A / E;
-		//Se formatean el monto con separación de miles y dos decimales 
-		var options1 = { style: 'decimal', maximumFractionDigits: 2,};
-		var numberFormat1 = new Intl.NumberFormat('de-DE', options1);
-		var MontoTransferencia= numberFormat1.format(Transferir);
-		var D= document.Form_Transferencia.Resultado.value= MontoTransferencia;
-		document.getElementById("Resultado").style.display="Block";
+		var Transferir= E / A;
+		// //Se formatean el monto con separación de miles y dos decimales 
+		// var options1 = { style: 'decimal', maximumFractionDigits: 2,};
+		// var numberFormat1 = new Intl.NumberFormat('de-DE', options1);
+		// var MontoTransferencia= numberFormat1.format(Transferir);
+		// var D= document.Form_Transferencia.Resultado.value= MontoTransferencia;
+		// document.getElementById("Resultado").style.display="Block";
+		alert(Transferir);
 	}
 	else{
 		var Transferir= A * E;
@@ -68,7 +69,33 @@ function Detalles(id){
 
 //-----------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------
+//Llamada desde Cuentas_Pagar.php
+function Detalles_CuentasPagar(id){
+	// alert(id);
+	var CI= document.getElementById(id).value;
+	window.open("../controlador/Detalles_CuentasPagar.php?Codigo=" + codigo,"anexo","width=800px,height=600px,left=300px");
+}
+
+//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
 //Llamada desde Transferencia.php
 function configurarTasa(){
-	window.open("../vista/configurarTasa.php","anexo","width=800px,height=600px,left=300px");
+	window.open("../vista/configurarTasa.php","anexo","width=600px,height=400px,left=300px");
+}
+
+//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
+//Llamada desde configurarTasa.php
+function Calculo_1(){
+	var A= document.getElementById("TasaProveedor").value;
+	var B= document.getElementById("Incremento").value;
+
+	var TasImpresion= parseFloat (A) + parseFloat (B);
+
+	//Se formatean el monto con separación de miles y tres decimales 
+	var options1 = {style: 'decimal', maximumFractionDigits: 3,};
+	var numberFormat1 = new Intl.NumberFormat('de-DE', options1);
+	var TasaDecimal= numberFormat1.format(TasImpresion);
+
+	document.getElementById("TasaImpresionarte").value=TasaDecimal;
 }

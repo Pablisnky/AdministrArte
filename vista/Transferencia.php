@@ -33,7 +33,7 @@
 		<form action="../controlador/recibe_transferencia.php" method="POST" autocomplete="off" name="Form_Transferencia" id="FormEstam">
 			<fieldset class="fieldset_1">
 				<label>Tasa del dia</label>
-				<input type="text" id="TasaProveedor" value="<?php echo $Tasa;?>">
+				<input type="text" id="TasaImpresionarte" value="<?php echo $TasaImpresionarte;?>" readonly>
 				<br>
 				<input type="radio" name="transf" id="COP_Bs" onclick="Divisa_1()" checked>
 				<label for="COP_Bs">Pesos -> Bolivares</label>
@@ -83,5 +83,4 @@
 	<div id="MostrarTransferencia"></div>
 	<br>
 
-	<a class="" href="../index.php">Regresar</a>
-	
+	<a class="" href="../index.php">Regresar</a>	
