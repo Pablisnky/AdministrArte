@@ -26,35 +26,34 @@
 		</div>
 		<div>
 			<fieldset class="fieldset_1">
-				<legend>Presupuestos</legend>
-				<a class="a_2" href="vista/Impresion.php?pagina=Impresión" name="presupuesto" id="ImpresionPlotter" value="Impresion_Plotter">Impresion Plotter</a>
-				<br>
-				<a class="a_2"  href="vista/Estampados.php?pagina=Estampados" name="presupuesto" id="EstampadoVinilo" value="Estampado_Vinilo">Estampado Vinilo textil</a>
-				<br>
-				<a class="a_2"  href="" name="presupuesto" id="CorteViniloAdhesivo" value="Corte_Vinilo_Adhesivo">Corte Vinilo Adhesivo</a>
-				<br>
-				<a class="a_2"  href="" name="presupuesto" id="DibujoPlanos" value="Dibujo_Planos">Dibujo de planos</a>
-				<br>
-				<a class="a_2"  href="" name="presupuesto" id="DiseñoGrafico" value="Diseño_Grafico">Diseño Grafico</a>
-			</fieldset>
-
-			<fieldset class="fieldset_1">
 				<legend>Administración</legend>
 				<a class="a_2" href="vista/Cierre_Caja.php?pagina=Cierre caja" id="CierreCaja" value="Cierre_Caja">Cierre Caja</a>
 				<br>
 				<a class="a_2" href="vista/Gastos.php?pagina=Gastos" id="Gastos" value="Gastos">Gasto diario</a>
 				<br>
-				<a class="a_2" href="vista/Gastos.php?pagina=Gastos" id="Gastos" value="Costos_Fijos">Costos fijos</a>
+				<a class="a_3" href="" id="CostosFijos" value="Costos_Fijos">Costos fijos</a>
 				<br>
-				<a class="a_2" href="vista/Cuentas_Pagar.php?pagina=CuentasPagar" id="CuentasPagar" value="Cuentas_Pagar">Cuentas por pagar</a>
+				<a class="a_2" href="vista/Cuentas_Pagar.php?pagina=Cuentas por Pagar" id="CuentasPagar" value="Cuentas_Pagar">Cuentas por pagar</a>
 				<br>
-				<a class="a_2" href="" id="CuentasCobrar" value="Cuentas_Cobrar">Cuentas por cobrar</a>
+				<a class="a_3" href="" id="CuentasCobrar" value="Cuentas_Cobrar">Cuentas por cobrar</a>
 				<br>
-				<a class="a_2" href="" id="Inventario" value="Inventario">Inventario</a>
+				<a class="a_3" href="" id="Inventario" value="Inventario">Inventario</a>
 				<br>
-				<a class="a_2" href="" id="Pedidos" value="Pedidos">Pedidos</a>
+				<a class="a_3" href="" id="Pedidos" value="Pedidos">Pedidos</a>
 				<br>
-				<a class="a_2" href="" id="Proveedores" value="Proveedores">Proveedores</a>
+				<a class="a_3" href="" id="Proveedores" value="Proveedores">Proveedores</a>
+			</fieldset>
+			<fieldset class="fieldset_1">
+				<legend>Presupuestos</legend>
+				<a class="a_3" href="vista/Impresion.php?pagina=Impresión" name="presupuesto" id="ImpresionPlotter" value="Impresion_Plotter">Impresion Plotter</a>
+				<br>
+				<a class="a_2"  href="vista/Estampados.php?pagina=Estampados" name="presupuesto" id="EstampadoVinilo" value="Estampado_Vinilo">Estampado Vinilo textil</a>
+				<br>
+				<a class="a_3"  href="" name="presupuesto" id="CorteViniloAdhesivo" value="Corte_Vinilo_Adhesivo">Corte Vinilo Adhesivo</a>
+				<br>
+				<a class="a_3"  href="" name="presupuesto" id="DibujoPlanos" value="Dibujo_Planos">Dibujo de planos</a>
+				<br>
+				<a class="a_3"  href="" name="presupuesto" id="DiseñoGrafico" value="Diseño_Grafico">Diseño Grafico</a>
 			</fieldset>
 			<fieldset class="fieldset_1">
 				<legend>Otras tareas</legend>
