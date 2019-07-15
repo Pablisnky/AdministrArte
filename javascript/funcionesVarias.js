@@ -69,11 +69,11 @@ function Detalles(id){
 
 //-----------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------
-//Llamada desde Cuentas_Pagar.php
+//Llamada desde mostrarCuentasPagar.php
 function Detalles_CuentasPagar(id){
 	// alert(id);
-	var CI= document.getElementById(id).value;
-	window.open("../controlador/Detalles_CuentasPagar.php?Codigo=" + codigo,"anexo","width=800px,height=600px,left=300px");
+	var ID_CP= document.getElementById(id).value;
+	window.open("../controlador/Detalles_CuentasPagar.php?ID_CP=" + ID_CP,"anexo","width=800px,height=600px,left=300px");
 }
 
 //-----------------------------------------------------------------------------------------------
