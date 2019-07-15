@@ -32,7 +32,7 @@
 		<div>
 			<form action="../controlador/recibe_cierre.php" method="POST" autocomplete="off">
 				<fieldset class="fieldset_1">
-					<legend>Insertar monto de cierre</legend>
+					<legend class="legend_2">Insertar monto de cierre</legend>
 					<label>fecha</label>
 					<input type="text" name="fecha" id="Calendario_CM_2">
 					<br>
