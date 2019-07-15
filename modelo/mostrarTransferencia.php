@@ -30,7 +30,7 @@
                 <td><?php echo $Resultado_1['banco']; ?></td>
                 <td><?php echo $Resultado_1['monto']; ?></td>
                 <td><?php echo $Resultado_1['fecha']; ?></td>
-                <td><input type="text" id="<?php echo $A;?>" value="<?php echo $A;?>" hidden onclick="Detalles(this.id)"><label for="<?php echo $A;?>">Detalles</label></td>   
+                <td><input type="text" id="<?php echo $A;?>" value="<?php echo $A;?>" hidden onclick="Detalles(this.id)"><label class="label_1" for="<?php echo $A;?>">Detalles</label></td>   
             </tr> <?php
 						}   ?>
         </tbody>
