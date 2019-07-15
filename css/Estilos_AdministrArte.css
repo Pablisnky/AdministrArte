@@ -1,12 +1,49 @@
+body{
+	background-color: rgba(148, 89, 89, 0.1);
+}
+.legend_1{/*index.php*/
+	font-size: 22px;
+}
+.legend_2{/*CIerre_Caja.php*/
+	font-size: 18px;
+}
 .a_1{
 	display: inline-block;
 	margin-top: 5%;
 }
-.fieldset_1{
+.a_2{/*index.php*/
+	margin-bottom: 7%;
+	display: inline-block;
+	text-decoration: none;
+}
+.a_2:hover{
+	color: darkblue;
+	font-weight: bold;
+}
+.a_3{/*index.php*/
+	margin-bottom: 7%;
+	display: inline-block;
+	text-decoration: none;
+	color: rgba(47, 92, 77, 0.7);
+	cursor: default;
+}
+.contenedor_1{/*mostrarCuentasPagar.php*/
+}
+.fieldset_1{/*index.php  Estampados.php*/
 	width: 12%;
 	display: table-cell;
 	vertical-align: top;
 	margin-right: 2%;
+}
+.fieldset_2{/*Cuentas_Pagar.php*/
+	width: 92%;
+	display: table-cell;
+	vertical-align: top;
+	margin-right: 2%;
+}
+.label_1{/*mostrarCuentasPagar*/
+	color: blue;
+	cursor: pointer;
 }
 .PopUp{
 	cursor: pointer;
@@ -15,4 +52,17 @@
 }
 .PopUp:hover{
 	font-weight:bold ;
+}
+.tabla_1{/*mostrarCuentasPagar.php*/
+	width: 60%;
+	border-collapse: collapse;
+}
+.tr_1{/*mostrarCuentasPagar.php{*/
+	line-height: 20px;
+}
+.tr_1:hover{
+	background-color: blueviolet;
+}
+.tr_1 ~ label:hover{
+	background-color: yellow;
 }
