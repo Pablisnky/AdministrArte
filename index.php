@@ -26,7 +26,7 @@
 		</div>
 		<div>
 			<fieldset class="fieldset_1">
-				<legend>Administración</legend>
+				<legend class="legend_1"> Administración</legend>
 				<a class="a_2" href="vista/Cierre_Caja.php?pagina=Cierre caja" id="CierreCaja" value="Cierre_Caja">Cierre Caja</a>
 				<br>
 				<a class="a_2" href="vista/Gastos.php?pagina=Gastos" id="Gastos" value="Gastos">Gasto diario</a>
@@ -44,7 +44,7 @@
 				<a class="a_3" href="" id="Proveedores" value="Proveedores">Proveedores</a>
 			</fieldset>
 			<fieldset class="fieldset_1">
-				<legend>Presupuestos</legend>
+				<legend class="legend_1">Presupuestos</legend>
 				<a class="a_3" href="vista/Impresion.php?pagina=Impresión" name="presupuesto" id="ImpresionPlotter" value="Impresion_Plotter">Impresion Plotter</a>
 				<br>
 				<a class="a_2"  href="vista/Estampados.php?pagina=Estampados" name="presupuesto" id="EstampadoVinilo" value="Estampado_Vinilo">Estampado Vinilo textil</a>
@@ -56,7 +56,7 @@
 				<a class="a_3"  href="" name="presupuesto" id="DiseñoGrafico" value="Diseño_Grafico">Diseño Grafico</a>
 			</fieldset>
 			<fieldset class="fieldset_1">
-				<legend>Otras tareas</legend>
+				<legend class="legend_1">Otras tareas</legend>
 				<a class="a_2" href="vista/Transferencia.php?pagina=Transferencias" name="transferencia" id="Transferencia" value="Transferencias">Transferencias</a>
 			</fieldset>
 		</div>
