@@ -28,7 +28,7 @@
 		<div>
 			<form autocomplete="off" name="formEstam" id="FormEstam">
 				<fieldset class="fieldset_1">
-					<legend>Indique color</legend>
+					<legend class="legend_2">Indique color</legend>
 					<input type="radio" name="color" id="Amarillo" value="Amarillo">
 					<label for="Amarillo">Amarillo</label>
 					<br>
@@ -66,7 +66,7 @@
 					<label for="Violeta">Violeta</label>
 				</fieldset>
 				<fieldset class="fieldset_1">
-					<legend>Indique area</legend>
+					<legend class="legend_2">Indique area</legend>
 					<label>Ancho (cm)</label>
 					<input type="text" name="ancho" id="Ancho">
 					<br>
@@ -74,7 +74,7 @@
 					<input type="text" name="largo" id="Largo">
 				</fieldset>
 				<fieldset class="fieldset_1">
-					<legend>Tiempo de diseño</legend>
+					<legend class="legend_2">Tiempo de diseño</legend>
 					<input type="radio" name="tiempo" id="Tiempo_20" value="20" checked="checked" onclick="DesactivaTiemManual()">
 					<label for="Tiempo_20">20 min</label>
 					<br>
