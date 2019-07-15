@@ -30,11 +30,11 @@ var http_request = false;
         return http_request;
     } 
 
-//-----------------------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
 //Es llamada desde Gastos.php
     function llamar_mostrarGastos(){
-        A=document.getElementById("Calendario_CM").value;//se inserta la fecha desde Gastos.php
+        A=document.getElementById("Calendario_CM").value;//se inserta la fecha desde Gastos.php; en realidad pudo ser cualquier input.
         var url="../modelo/mostrarGastos.php?val_1=" + A;
         http_request.open('GET',url,true);     
         peticion.onreadystatechange = respuesta_mostrarGastos;
@@ -52,8 +52,8 @@ var http_request = false;
         }
     }
 
-//-----------------------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------
 //Es llamada desde Cierre_Caja.php
     function llamar_mostrarCierreCaja(){
         A=document.getElementById("Calendario_CM_2").value;//se inserta la fecha desde Cierre_Caja.php
@@ -74,8 +74,8 @@ var http_request = false;
         }
     }
 
-//-----------------------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------
 //Es llamada desde Estampados.php
     function llamar_PresupuestoEstampado(){
         A=document.formEstam.color.value;//se inserta el color desde Estampados.php
@@ -100,11 +100,35 @@ var http_request = false;
         }
     }
 
-//-----------------------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------
+//Es llamada desde Impresion.php
+    function llamar_PresupuestoPlotter(){
+        A=document.formImpre.papel.value;//se inserta el tipo de papel
+        B=document.formImpre.tamaño.value;//se insertan el tamaño de papel
+        C=document.formImpre.color.value;//se insertan si es a color o monocromatico
+        var url="../controlador/recibe_impresion.php?val_1=" + A + "&val_2=" + B + "&val_3=" + C;
+        http_request.open('GET',url,true);     
+        peticion.onreadystatechange = respuesta_PresupuestoPlotter;
+        peticion.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        peticion.send("null");
+    }                                                           
+    function respuesta_PresupuestoPlotter(){
+        if (peticion.readyState == 4){
+            if (peticion.status == 200){
+                document.getElementById('MostrarImpresion').innerHTML=peticion.responseText;//se recoje el resultado de la consulta
+            } 
+            else{
+                alert('Hubo problemas con la petición.');
+            }
+        }
+    }
+
+//-------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------
 //Es llamada desde Transferencias.php
     function llamar_Transferencia(){
-        A=document.getElementById("EnvioAjax").value;//se inserta el Nombre desde Transferencias.php
+        A=document.getElementById("EnvioAjax").value;
         var url="../modelo/mostrarTransferencia.php?val_1=" + A;
         http_request.open('GET',url,true);     
         peticion.onreadystatechange = respuesta_Transferencia;
@@ -122,5 +146,27 @@ var http_request = false;
         }
     }
 
-//-----------------------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+//Es llamada desde Cuentas_Pagar.php
+    function llamar_mostrarCuentasPagar(){
+        A=document.getElementById("EnvioAjax").value;
+        var url="../modelo/mostrarCuentasPagar.php?val_1=" + A;
+        http_request.open('GET',url,true);     
+        peticion.onreadystatechange = respuesta_mostrarCuentasPagar;
+        peticion.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        peticion.send("null");
+    }                                                           
+    function respuesta_mostrarCuentasPagar(){
+        if (peticion.readyState == 4){
+            if (peticion.status == 200){
+                document.getElementById('MostrarCuentas_Pagar').innerHTML=peticion.responseText;//se recoje el resultado de la consulta
+            } 
+            else{
+                alert('Hubo problemas con la petición.');
+            }
+        }
+    }
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
