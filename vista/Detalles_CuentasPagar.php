@@ -1,12 +1,16 @@
 <?php
     $ID_CP= $_GET["ID_CP"];
+    $Titulo= $_GET["pagina"];
     // echo $ID_CP;
+    // echo $Titulo;
 ?>
 
 <!DOCTYPE html>
 <html>
     <head> 
-	    <link rel="stylesheet" type="text/css" href="../css/Estilos_AdministrArte.css">
+        <link rel="stylesheet" type="text/css" href="../css/Estilos_AdministrArte.css">
+        
+        <script src="../javascript/funciones_Ajax.js"></script> 
     </head>
     <body>
         <div id="Principal">
@@ -15,16 +19,17 @@
                 include("../modulos/header.php");
                 include("../modelo/consulta_DetallesCuentasPagar.php");
                 include("../modelo/consulta_CuentasPagar.php");
+                include("../modelo/consulta_DetallesInversion.php");
             ?>
         </div>
         <div>
             <fieldset class="">
                 <legend>Cuenta por pagar</legend>
                 <label>Código CP</label>
-                <input type="text" value="<?php echo $ID_CP;?>" >
+                <input type="text" id="Codigo_CP" value="<?php echo $ID_CP;?>" >
                 <br>
                 <label>Descripción</label>
-                <input type="text" value="<?php echo $Descripcion;?>" >
+                <textarea><?php echo $Descripcion;?></textarea>
                 <br>
                 <label>Acredor</label>
                 <input type="text" value="<?php echo $Acreedor;?>">
@@ -60,28 +65,47 @@
             </fieldset>
             <fieldset class="">
                 <legend>Detalles de inversión</legend>
-                <label>Código inversión</label>
-                <input type="text" value="<?php echo $Tasa;?>" >
-                <br>
-                <label>Monto inversión</label>
-                <input type="text" value="<?php echo $Incremento;?>" >
-                <br>
-                <label>Descripción inversión</label>
-                <input type="text" value="<?php echo $Aumento;?>">
-                <br>
-                <label>Fecha inversión</label>
-                <input type="text" value="<?php echo $Monto;?>">
-                <br>
-                <label>Amortizado</label>
-                <input type="text" value="<?php echo $Monto;?>">
+                <?php
+                    //Consulta que ubica todas las inversiones que se hicieron con el credito
+                    $Consulta_1="SELECT * FROM detalles_inversion WHERE ID_CP=9 ";
+                    $Recordset= mysqli_query($Conexion, $Consulta_1); 
+                ?> 
+                <label class="label_1" onclick="llamar_NuevaInversion()">Insertar nueva inversión</label>
+                <div id="MostrarNuevaInversion"></div><!--Inserta información traida desde mostrarNuevaInversion.php pormedio de Ajax-->
+                <table>
+                    <thead>
+                        <th>Código inversión</th>
+                        <th>Descripción inversión</th>
+                        <th>Monto inversión</th>
+                        <th>Fecha inversión</th>
+                    </thead>
+                    <tbody>
+                        <?php
+                        while($Resultado= mysqli_fetch_array($Recordset)){   ?>
+                            <tr>
+                                <td><?php echo $Resultado["ID_DI"];?></td>
+                                <td><?php echo $Resultado["inversion"];?></td>
+                                <td><?php echo $Resultado["monto_inversion"];?></td>
+                                <td><?php echo $Resultado["fecha"];?></td>
+                            </tr>
+                            <?php
+                        }   ?>
+                            <tr>
+                                <td><?php echo "TOTAL= " . $Total;?></td>
+                            </tr>
+                    </tbody>
+                </table>
             </fieldset>
             <fieldset class="">
                 <legend>Resumen</legend>
+                <label>Monto invertido</label>
+                <input type="text" value="<?php echo $Total;?>" >
+                <br>
                 <label>Monto no utilizado</label>
-                <input type="text" value="<?php echo $Tasa;?>" >
+                <input type="text" value="<?php echo $SinInvertir;?>" >
                 <br>
                 <label>Observación</label>
-                <input type="text" value="<?php echo $Tasa;?>" >
+                <input type="text" value="" >
                 <br>
                 <label>Total Amortizado</label>
                 <input type="text" value="<?php echo $T_Amortizado;?>">
@@ -90,3 +114,5 @@
                 <input type="text" value="<?php echo $T_Pendiente;?>">
             </fieldset>
         </div>
+    </body>
+</html>

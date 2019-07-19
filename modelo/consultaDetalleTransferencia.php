@@ -1,6 +1,6 @@
 <?php 
     //Se consulta los detalles de transferencia; pedido de detallesTrans.php
-    $Consulta_1="SELECT transferencia.fecha, transferencia.transferirProveedor, tasa_Proveedor, incremento, tasa_impresionarte, recibe_Bs, monto_pesos, utilidad FROM tasa_transferencia INNER JOIN transferencia ON tasa_transferencia.ID_TT=transferencia.ID_TT INNER JOIN usuariotransferencia ON transferencia.ID_Usuario=usuariotransferencia.ID_UT WHERE usuariotransferencia.cedula= $Cedula  ORDER BY transferencia.ID_Transferencia DESC";
+    $Consulta_1="SELECT transferencia.fecha, transferencia.transferirProveedor, tasa_Proveedor, incremento, tasa_impresionarte, recibe_Bs, monto_pesos, utilidad FROM tasa_transferencia INNER JOIN transferencia ON tasa_transferencia.ID_TT=transferencia.ID_TT INNER JOIN usuariotransferencia ON transferencia.ID_Usuario=usuariotransferencia.ID_UT WHERE transferencia.ID_Transferencia= $ID_Transferencia";
     $Recordset_1= mysqli_query($Conexion, $Consulta_1);
     $Resultado_1= mysqli_fetch_array($Recordset_1);
 

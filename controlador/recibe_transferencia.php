@@ -1,30 +1,43 @@
 <?php
-// el calculo esta basado en precio del cm2 de material, tiempo de diseño, montaje en la computadora, corte en cameo, la hora minima de un salario basico es de : 
+	//se reciben datos desde Transferencia.php
 	$Nombre= $_POST["nombre"];
 	$Apellido= $_POST["apellido"];
 	$Cedula= $_POST["cedula"];
 	$Telefono= $_POST["telefono"];
 	$Banco= $_POST["banco"];
 	$Numero= $_POST["numero"];
-	$Monto= $_POST["montoGiro"];
-	$Resultado= $_POST["resultado"];
+	$MontoGiro= $_POST["montoGiro"];
+	$Resultado= $_POST["resultado"];//viene formateado 00.000,00
+	$Tasa_Proveedor= $_POST["tasa_Proveedor"];//viene formateado 0,000
 
-	  echo "Nombre= " . $Nombre . "<br>";
-	 echo "Apellido= " . $Apellido . "<br>";
-	  echo "Cedula= " . $Cedula . "<br>";
-	 echo "Telefono= " . $Telefono . "<br>";
-	 echo "Banco= " . $Banco . "<br>";
-	  echo "Numero= " . $Numero . "<br>";
-	 echo "Monto= " . $Monto . "<br>";
-	  echo "BS a recibir= " . $Resultado . "<br>";
+	echo "Nombre= " . $Nombre . "<br>";
+	echo "Apellido= " . $Apellido . "<br>";
+	echo "Cedula= " . $Cedula . "<br>";
+	echo "Telefono= " . $Telefono . "<br>";
+	echo "Banco= " . $Banco . "<br>";
+	echo "Numero= " . $Numero . "<br>";
+	echo "Monto giro= " . $MontoGiro . "<br>";
+	echo "BS a recibir= " . $Resultado . "<br>";
+	echo "Tasa proveedor= " . $Tasa_Proveedor . "<br>";
 
+	//Se calcula el monto a transferir a proveedor
+    //Se cambia el formato de $Tasa_Proveedor para mostrar en pantalla con ',' 
+	$Tasa_Proveedor_2= str_replace(',','.',$Tasa_Proveedor); 
+	$Resultado= str_replace('.','',$Resultado);
+	$Resultado= str_replace(',','.',$Resultado);
+	echo "Tasa de proveedor= " . $Tasa_Proveedor_2 . "<br>"; 
+	echo "Bs a transferir= " . $Resultado ."<br>";
+	$Trans_Proveedor = $Resultado * $Tasa_Proveedor_2;
+	echo "Trans a proveedor= " . str_replace(',','.',$Trans_Proveedor);
+	
 	//Se genera un numero aleatorio para asegurar que se escogera al usuario recien insertado cuando se busque el ID_Usuario
     $Aleatorio = mt_rand(1000000,999999999);
     // echo "Nº aleatorio= " . $aleatorio . "<br>"; 
 
-	//se insertan los valores a la BD
+	//se conecta a la BD
 	include("../conexion/Conexion_BD.php");
 
+	//Se insertan los datos del usuario
 	$Insertar_1= "INSERT INTO usuariotransferencia(nombre, apellido, cedula, telefono, aleatorio) VALUES('$Nombre', '$Apellido', '$Cedula', '$Telefono', '$Aleatorio')";
 	mysqli_query($Conexion, $Insertar_1) or die ( "Algo ha ido mal en la consulta a la base de datos");
 
@@ -35,7 +48,15 @@
 	$ID_Usuario= $Resultado_1["ID_UT"];
 	// echo $ID_Usuario;
 
-	$Insertar_2= "INSERT INTO transferencia(ID_Usuario, banco, numero, monto, Bs_recibe, fecha) VALUES('$ID_Usuario', '$Banco', '$Numero', '$Monto', '$Resultado', NOW())";
+	//Se consulta la tasa de transferencia para el dia que se realiza la transferencia
+	$Consulta_2= "SELECT ID_TT FROM tasa_transferencia WHERE fecha= CURDATE() ORDER BY ID_TT DESC";
+	$Recordset_2= mysqli_query($Conexion, $Consulta_2);
+	$Resultado_2= mysqli_fetch_array($Recordset_2);
+	$ID_TT= $Resultado_2["ID_TT"];
+	// echo $ID_TT;
+
+	//Se insertan los datos de la transferencia
+	$Insertar_2= "INSERT INTO transferencia(ID_TT, ID_Usuario, banco, numero, monto_pesos, recibe_Bs, utilidad, fecha) VALUES('$ID_TT','$ID_Usuario', '$Banco', '$Numero', '$MontoGiro', '$Resultado', '$Utilidad', NOW())";
 	mysqli_query($Conexion, $Insertar_2) or die ( "Algo ha ido mal en la consulta a la base de datos");
 
 	header("Location:../vista/Transferencia.php");

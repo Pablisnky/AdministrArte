@@ -16,7 +16,7 @@
 		<link rel="stylesheet" type="text/css" href="css/Estilos_AdministrArte.css">
         <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="css/MediaQuery_EstilosAdministrArte_Movil.css"> 
 
-        <script src="javascript/funcionesVarias.js"></script> 
+        <!-- <script src="javascript/funcionesVarias.js"></script>  -->
 	</head>
 	<body>
 		<div id="Principal">

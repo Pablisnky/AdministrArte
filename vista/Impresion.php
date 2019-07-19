@@ -78,6 +78,12 @@
 					<br>
 					<input type="radio" name="tamaño" id="Carta" value="Carta">
 					<label for="Carta">Carta</label>
+					<br><br>
+					<label>Indique dimensiones</label>
+					<label>Ancho</label>
+					<input type="text" name="ancho>"
+					<label>Alto</label>
+					<input type="text" name="alto">
 				</fieldset>
 				<fieldset class="fieldset_1"> 
 					<legend class="legend_2">Ajuste de color</legend>

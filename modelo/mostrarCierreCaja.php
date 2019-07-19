@@ -8,33 +8,35 @@
 	$Consulta= "SELECT * FROM cierre_caja ORDER BY Fecha_Cierre DESC";
 	$Recordset= mysqli_query($Conexion, $Consulta);
 ?>
-	<table >
-		<thead>
-			<th>FECHA</th>
-			<th>MONTO</th>
-		</thead>
-		<tbody>
-			<?php 
-				while($Resultado= mysqli_fetch_array($Recordset)){  
-					//Se formatean el monto con separación de miles y dos decimales 
-					$MontoCierre= number_format($Resultado["Monto_Cierre"], 2, ",", ".");	?>	
-					<tr>
-						<td><?php echo $Resultado["Fecha_Cierre"];?></td>
-						<td><?php echo $MontoCierre;?></td>
-					</tr>  
-					<?php
-				}  
-					?>
-		</tbody>
-	</table>  	
+	<div style="float:left">
+		<table >
+			<thead>
+				<th>FECHA</th>
+				<th>MONTO</th>
+			</thead>
+			<tbody>
+				<?php 
+					while($Resultado= mysqli_fetch_array($Recordset)){  
+						//Se formatean el monto con separación de miles y dos decimales 
+						$MontoCierre= number_format($Resultado["Monto_Cierre"], 2, ",", ".");	?>	
+						<tr>
+							<td><?php echo $Resultado["Fecha_Cierre"];?></td>
+							<td><?php echo $MontoCierre;?></td>
+						</tr>  
+						<?php
+					}  
+						?>
+			</tbody>
+		</table>  
+	</div>	
+	<div style="float:left;margin-left: 10%;">
 <?php
 	//Se suman todos los ingresos SELECT WEEK(Fecha_Cierre) As semana, SUM(Monto_Cierre) AS Total FROM cierre_caja GROUP BY week(Fecha_Cierre,0)
-
 	$Consulta_2= "SELECT WEEK(Fecha_Cierre) As semana, SUM(Monto_Cierre) AS Total, 0.10 *SUM(Monto_Cierre) AS Diezmo FROM cierre_caja  GROUP BY week(Fecha_Cierre,0)";
 	$Recordset_2= mysqli_query($Conexion, $Consulta_2);	
 	//$Resultado= mysqli_fetch_array($Recordset_2);
 	//echo "Total= " . $Resultado["Total"] . "<br>";
-	?>
+?>
 	<table>
 		<thead>
 			<th>SEMANA</th>
@@ -57,3 +59,13 @@
 			?>
 		</tbody>
 	</table>  	
+	</div>
+	<div style="float:right; margin-right:30%; ">
+		<?php
+			//Se consulta el gasto total del mes
+			$Consulta_2= "SELECT SUM(Monto_Cierre) AS Total FROM cierre_caja WHERE MONTH(NOW())";
+			$Recordset_2= mysqli_query($Conexion, $Consulta_2);
+			$Resultado_2= mysqli_fetch_array($Recordset_2);	
+			echo "Total mes= " . $Resultado_2["Total"];
+		?>
+	</div>

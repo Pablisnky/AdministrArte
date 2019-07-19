@@ -29,6 +29,9 @@ body{
 }
 .contenedor_1{/*mostrarCuentasPagar.php*/
 }
+.input_1{/*Estampados.php*/
+	display:none;
+}
 .fieldset_1{/*index.php  Estampados.php*/
 	width: 12%;
 	display: table-cell;
@@ -53,8 +56,8 @@ body{
 .PopUp:hover{
 	font-weight:bold ;
 }
-.tabla_1{/*mostrarCuentasPagar.php*/
-	width: 60%;
+.tabla_1{/*mostrarCuentasPagar.php   mostrarTransferencia.php*/
+	width: 95%;
 	border-collapse: collapse;
 }
 .tr_1{/*mostrarCuentasPagar.php{*/

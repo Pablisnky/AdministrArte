@@ -5,7 +5,7 @@
 	echo "Fecha= " . $Fecha . "<br>";
 	echo "Monto= " . $Monto . "<br>";
 
-	//se cambia el formato de la fecha antes de introducira a la base de datos para que mysql la pueda reconocer
+	//se cambia el formato de la fecha antes de introducir a la base de datos para que mysql la pueda reconocer
 	$fechaFormatoMySQL = date("Y-m-d", strtotime($Fecha));
 	
 	include("../conexion/Conexion_BD.php");

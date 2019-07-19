@@ -28,43 +28,77 @@
 		<div>
 			<form autocomplete="off" name="formEstam" id="FormEstam">
 				<fieldset class="fieldset_1">
+					<legend class="legend_2">Tipo de vinilo textil</legend>
+					<input type="radio" name="tipo" id="Estandar" value="estandar">
+					<label for="Estandar">Estandar</label><!--$ 25.000/m x 50 cm ancho-->
+					<br>
+					<input type="radio" name="tipo" id="Imprimible" value="imprimible">
+					<label for="Imprimible">Imprimible</label><!--$ 25.000/m x 50 cm ancho-->
+					<br>
+					<input type="radio" name="tipo" id="Flock_gamuza" value="flock_gamuza">
+					<label for="Flock_gamuza">Flock</label><!--$ 34.000/m x 50 cm ancho-->
+					<br>
+					<input type="radio" name="tipo" id="Glitter" value="glitter">
+					<label for="Glitter">Glitter</label><!--$ 37.000/m x 50 cm ancho-->
+				</fieldset>
+
+				<fieldset class="fieldset_1">
+					<legend class="legend_2">Ancho de rollo</legend>
+					<input type="radio" name="anchoRollo" id="A_30" value="30" onclick="habilitar_RolloColor()">
+					<label for="A_30">30 cm</label>
+					<br>
+					<input type="radio" name="anchoRollo" id="A_50" value="50" onclick="habilitar_RolloColor()">
+					<label for="A_50">50 cm</label>
+				</fieldset>
+
+				<fieldset class="fieldset_1">
 					<legend class="legend_2">Indique color</legend>
-					<input type="radio" name="color" id="Amarillo" value="Amarillo">
-					<label for="Amarillo">Amarillo</label>
-					<br>
-					<input type="radio" name="color" id="Azul_marino" value="Azul_marino">
-					<label for="Azul_marino">Azul marino</label>
-					<br>
-					<input type="radio" name="color" id="Azul_rey" value="Azul_rey">
-					<label for="Azul_rey">Azul rey</label>
-					<br>
-					<input type="radio" name="color" id="Blanco" value="Blanco">
+					<input type="radio" name="color" id="Blanco" value="blanco">
 					<label for="Blanco">Blanco</label>
 					<br>
-					<input type="radio" name="color" id="Dorado" value="Dorado">
-					<label for="Dorado">Dorado</label>
-					<br>
-					<input type="radio" name="color" id="Gris" value="Gris">
-					<label for="Gris">Gris</label>
-					<br>
-					<input type="radio" name="color" id="Marron" value="Marron">
-					<label for="Marron">Marron</label>
-					<br>
-					<input type="radio" name="color" id="Negro" value="Negro">
+					<input type="radio" name="color" id="Negro" value="negro">
 					<label for="Negro">Negro</label>
 					<br>
-					<input type="radio" name="color" id="Plateado" value="Plateado">
+					<input type="radio" name="color" id="Azul_rey_3" value="azul_rey_3">
+					<label for="Azul_rey_3">Azul_rey</label>
+					<br>
+					<input type="radio" name="color" id="Axul_Marino_4" value="azul_Marino_4">
+					<label for="Azul_Marino_4">Azul_Marino</label>
+					<br>
+					<input type="radio" name="color" id="Azul_Claro_A_15" value="azul_Claro_A_15">
+					<label for="Azul_Claro_A_15">Azul_Claro_A</label>
+					<br>
+					<input type="radio" name="color" id="Agua_23" value="agua_23">
+					<label for="Agua_23">Agua</label>
+					<br>
+					<input type="radio" name="color" id="Amarillo_6" value="amarillo_6">
+					<label for="Amarillo_6">Amarillo</label>
+					<br>
+					<input type="radio" name="color" id="Verde_Claro_21" value="verde_Claro_21">
+					<label for="Verde_Claro_21">Verde_Claro</label>
+					<br>
+					<input type="radio" name="color" id="Naranja_8" value="naranja_8">
+					<label for="Naranja_8">Naranja</label>
+					<br>
+					<input type="radio" name="color" id="Purpura_12" value="purpura_12">
+					<label for="Purpura_12">Purpura</label>
+					<br>
+					<input type="radio" name="color" id="Rosado_13" value="rosado_13">
+					<label for="Rosado_13">Rosado</label>
+					<br>
+					<input type="radio" name="color" id="Fucsia_25" value="fucsia_25">
+					<label for="Fucsia_25">Fucsia</label>
+					<br>
+					<input type="radio" name="color" id="Dorado" value="dorado">
+					<label for="Dorado">Dorado</label>
+					<br>
+					<input type="radio" name="color" id="Plateado" value="plateado">
 					<label for="Plateado">Plateado</label>
 					<br>
-					<input type="radio" name="color" id="Rojo" value="Rojo">
+					<input type="radio" name="color" id="Rojo" value="rojo">
 					<label for="Rojo">Rojo</label>
-					<br>
-					<input type="radio" name="color" id="Verde" value="Verde">
-					<label for="Verde">Verde</label>
-					<br>
-					<input type="radio" name="color" id="Violeta" value="Violeta">
-					<label for="Violeta">Violeta</label>
 				</fieldset>
+
 				<fieldset class="fieldset_1">
 					<legend class="legend_2">Indique area</legend>
 					<label>Ancho (cm)</label>
@@ -73,9 +107,13 @@
 					<label>Largo (cm)</label>
 					<input type="text" name="largo" id="Largo">
 				</fieldset>
+
 				<fieldset class="fieldset_1">
 					<legend class="legend_2">Tiempo de diseño</legend>
-					<input type="radio" name="tiempo" id="Tiempo_20" value="20" checked="checked" onclick="DesactivaTiemManual()">
+					<input type="radio" name="tiempo" id="Tiempo_10" value="10" checked="checked" onclick="DesactivaTiemManual()">
+					<label for="Tiempo_10">10 min</label>
+					<br>
+					<input type="radio" name="tiempo" id="Tiempo_20" value="20" onclick="DesactivaTiemManual()">
 					<label for="Tiempo_20">20 min</label>
 					<br>
 					<input type="radio" name="tiempo" id="Tiempo_25" value="25" onclick="DesactivaTiemManual()">
@@ -113,3 +151,5 @@
 		<a class="a_1" href="../index.php">Regresar</a>
 	</body>
 </html>
+
+<!-- Toda las funciones que comienzen con la palabra "llamar_......()" se encuentran en funciones_Ajax.js-->

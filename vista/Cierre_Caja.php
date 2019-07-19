@@ -42,8 +42,8 @@
 					<input type="submit" value="Cargar">
 				</fieldset>
 			</form> 
+		<a href="../index.php">Regresar</a>
 		</div>
 		<div id="MostrarCierreCaja"></div><!-- Muestra resultados de petición Ajax, trae respuesta de mostrarCierreCaja.php-->
-		<a href="../index.php">Regresar</a>
 	</body>
 </html>

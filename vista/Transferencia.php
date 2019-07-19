@@ -15,8 +15,7 @@
 	<meta name="HandheldFriendly" content="true">
 
 	<link rel="stylesheet" type="text/css" href="../css/Estilos_AdministrArte.css">
-	<link rel="stylesheet" type="text/css" media="(max-width: 800px)"
-		href="css/MediaQuery_EstilosAdministrArte_Movil.css">
+	<link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="css/MediaQuery_EstilosAdministrArte_Movil.css">
 
 	<script src="../javascript/funciones_Ajax.js"></script>
 	<script src="../javascript/funcionesVarias.js"></script>
@@ -29,9 +28,10 @@
 			include("../modelo/consulta_Tasa.php");
 		?>
 	</div>
-	<div>
+	<div style="float:left;">
 		<form action="../controlador/recibe_transferencia.php" method="POST" autocomplete="off" name="Form_Transferencia" id="FormEstam">
-			<fieldset class="fieldset_1">
+		
+			<fieldset class="">
 				<label>Tasa del dia</label>
 				<input type="text" id="TasaImpresionarte" value="<?php echo $TasaImpresionarte;?>" readonly>
 				<br>
@@ -44,17 +44,19 @@
 				<legend>Conversiones</legend>
 				<input type="text" name="montoGiro" id="MontoGiro" placeholder="Inserte monto">
 				
+				<!--Este input coloca el monto que se va a transferir en Bs, la información viene de la función calcular_Transferencia()-->
 				<input type="text" name="resultado" id="Resultado"  hidden>
 				<br>
-				<input type="button" onclick="calcular_Transferencia()" value="Cotizar"><!--calcular_Transferencia() se encuentra en funcionesVarias.js-->
+				<input type="button" onclick="calcular_Transferencia()" value="Cotizar"> 
+				
 				<input type="button" value="Actualizar" onclick="location.reload()"/>
 			</fieldset>
 			<label class="PopUp" onclick="configurarTasa()">Configurar</label>
 			<hr>
-			<fieldset class="fieldset_1">
+			<fieldset class="">
 				<legend>Datos transferencia</legend>
 				<label for="Amarillo">Nombre</label>
-				<input type="text" name="nombre" id="Nombre">
+				<input type="text" name="nombre" id="Nombre" onkeyup="llamar_datosTransferencia(this.value)">
 				<br>
 				<label for="Azul_marino">Apellido</label>
 				<input type="text" name="apellido" id="Apellido">
@@ -65,7 +67,7 @@
 				<label for="Azul_rey">Telefono contacto</label>
 				<input type="text" name="telefono" id="Telefono">
 			</fieldset>
-			<fieldset class="fieldset_1">
+			<fieldset class="">
 				<legend>Datos bancario</legend>
 				<label>Banco</label>
 				<input type="text" name="banco" id="Banco">
@@ -73,14 +75,20 @@
 				<label>Número cuenta</label>
 				<input type="text" name="numero" id="Numero">
 			</fieldset>
+			</div>
 			<br>
+</div>		
+	<!-- Muestra resultados de petición Ajax, trae respuesta de buscarNombre.php-->
+	<div id="carga_4" style="float:right"></div>
+			<input type="text" name="tasa_Proveedor" value="<?php echo $Tasa;?>" hidden="hidden">
 			<input type="text" id="EnvioAjax" value="1" hidden="hidden">
 			<!--solo para enviar a ajax -->
 			<input type="submit" value="Guardar">
 		</form>
 	</div>
-	<!-- Muestra resultados de petición Ajax, trae respuesta de mostrarGastos.php-->
-	<div id="MostrarTransferencia"></div>
+
+	<!-- Muestra resultados de petición Ajax, trae respuesta de mostrarTransferencia.php-->
+	<div id="MostrarTransferencia" style="clear:left"></div>
 	<br>
 
 	<a class="" href="../index.php">Regresar</a>	

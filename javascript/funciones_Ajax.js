@@ -24,9 +24,9 @@ var http_request = false;
             alert('No es posible crear una instancia XMLHTTP');
             return false;
         }
-       //else{
-            // alert("Instancia creada exitosamente ok");
-        // }
+    //    else{
+    //         alert("Instancia creada exitosamente ok");
+    //     }
         return http_request;
     } 
 
@@ -78,12 +78,14 @@ var http_request = false;
 //-------------------------------------------------------------------------------------------------
 //Es llamada desde Estampados.php
     function llamar_PresupuestoEstampado(){
-        A=document.formEstam.color.value;//se inserta el color desde Estampados.php
-        B=document.getElementById("Ancho").value;//se inserta el ancho desde Estampados.php
-        C=document.getElementById("Largo").value;//se inserta el largo desde Estampados.php
-        D=document.formEstam.tiempo.value;//se insertan los minutos desde Estampados.php
-        E=document.getElementById("TiempoVariado").value;//se inserta el largo desde Estampados.php
-        var url="../controlador/recibe_estampados.php?val_1=" + A + "&val_2=" + B + "&val_3=" + C + "&val_4=" + D + "&val_5=" + E;
+        A=document.formEstam.color.value;//se inserta el color 
+        B=document.getElementById("Ancho").value;//se inserta el ancho 
+        C=document.getElementById("Largo").value;//se inserta el largo 
+        D=document.formEstam.tiempo.value;//se insertan los minutos 
+        E=document.getElementById("TiempoVariado").value;//se inserta el largo 
+        F=document.formEstam.tipo.value;//se inserta el tipo de vinilo 
+        G=document.formEstam.anchoRollo.value;//se inserta el tipo de vinilo 
+        var url="../controlador/recibe_estampados.php?val_1=" + A + "&val_2=" + B + "&val_3=" + C + "&val_4=" + D + "&val_5=" + E + "&val_6=" + F + "&val_7=" + G;
         http_request.open('GET',url,true);     
         peticion.onreadystatechange = respuesta_PresupuestoEstampado;
         peticion.setRequestHeader("content-type","application/x-www-form-urlencoded");
@@ -170,3 +172,65 @@ var http_request = false;
 
 //------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------
+//Es lamada desde Detalles_CuentasPagar.php
+    function llamar_NuevaInversion(){
+        A=document.getElementById("Codigo_CP").value;
+        var url="../modelo/mostrarNuevaInversion.php?val_1=" + A;
+        http_request.open('GET',url,true);     
+        peticion.onreadystatechange = respuesta_NuevaInversion;
+        peticion.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        peticion.send("null");
+    }                                                           
+    function respuesta_NuevaInversion(){
+        if (peticion.readyState == 4){
+            if (peticion.status == 200){
+                document.getElementById('MostrarNuevaInversion').innerHTML=peticion.responseText;//se recoje el resultado de la consulta
+            } 
+            else{
+                alert('Hubo problemas con la petición.');
+            }
+        }
+    }
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------    
+//Buscar datos de transferencia. función llamada desde Transferencia.php
+function llamar_datosTransferencia(nombre){
+
+    var divContenedor= document.getElementById("carga_4");
+       var xmlhttp;
+        if (window.XMLHttpRequest){ // Mozilla, Safari,...
+            xmlhttp = new XMLHttpRequest();
+        } else 
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        
+        if (!xmlhttp){
+            alert('No es posible crear una instancia XMLHTTP');
+            return false;
+        }
+      /*  else{
+            alert("Instancia creada exitosamente");
+        }     */
+    
+    A=document.getElementById("MontoGiro").value;
+    B=document.getElementById("Banco").value;
+    C=document.getElementById("Numero").value;
+    D=document.getElementById("Resultado").value;
+    
+    if(nombre.length === ""){//sino hay nada escrito en el input de buscar, no se ejecuta ninguna accion
+        divContenedor.innerHTML="";
+    }
+    else{//si hay algo escrito en el input de buscar se ejecuta la peticion de Ajax
+        xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState === 4 && this.status ===200){
+                divContenedor.innerHTML = xmlhttp.responseText;
+            }                   
+        }
+        xmlhttp.open("GET","../modelo/buscarNombre.php?nombre=" + nombre + "&val_21=" + A + "&val_22=" + B + "&val_23=" + C + "&val_24=" + D,true);//se envia la informacion cargada en el input al servidor, true significa que se va a hacer de manera asincrona se utiliza el metodo send para enviar.                                                             
+        xmlhttp.send();
+    }
+}
+
+//
+
+    
