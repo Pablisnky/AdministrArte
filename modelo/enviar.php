@@ -46,12 +46,12 @@ echo "Tasa proveedor formateada: " . $Tasa . "<br>";
 echo "Monto a recibir formateado: " . $MontoRecibe . "<br>";
 $Trans_Proveedor = $MontoRecibe * $Tasa;
 echo "Transferir a proveedor: " . $Trans_Proveedor . "<br>";
-    
+  
 //Utilidad
 $Utilidad = $MontoGiro - $Trans_Proveedor;
 echo "Utilidad de operacion: " . $Utilidad . "<br>";
 
-echo $Trans_Proveedor= number_format($Trans_Proveedor, 2, ",", ".") . "<br>";
+echo $Trans_Proveedor= number_format($Trans_Proveedor, 2, ",", ".");
 echo $Utilidad= number_format($Utilidad, 2, ",", "."); 
 
 //Se inserta la transferencia en la BD

@@ -42,48 +42,51 @@
 					<label for="Propalcote">Propalcote</label>
 					<br>
 					<input type="radio" name="papel" id="Periodico" value="Periodico">
-					<label for="Periodico">Periodico</label>
+					<label for="Periodico">Pergamino</label>
 					<br>
 					<input type="radio" name="papel" id="Kraft" value="Kraft">
 					<label for="Kraft">Kraft</label>
+					<br>
+					<input type="radio" name="papel" id="Kraft" value="Kraft">
+					<label for="Kraft">Periodico</label>
 				</fieldset>
 				<fieldset class="fieldset_1">
 					<legend class="legend_2">Seleccione tamaño papel</legend>
-					<input type="radio" name="tamaño" id="A0" value="A0">
+					<input type="radio" name="tamano" id="A0" value="A0">
 					<label for="A0">A0</label>
 					<br>
-					<input type="radio" name="tamaño" id="A1" value="A1">
+					<input type="radio" name="tamano" id="A1" value="A1">
 					<label for="A1">A1</label>
 					<br>
-					<input type="radio" name="tamaño" id="A3" value="A3">
+					<input type="radio" name="tamano" id="A3" value="A3">
 					<label for="A3">A3</label>
 					<br>
-					<input type="radio" name="tamaño" id="A4" value="A4">
+					<input type="radio" name="tamano" id="A4" value="A4">
 					<label for="A4">A4</label>
 					<br>
-					<input type="radio" name="tamaño" id="Pliego" value="Pliego">
+					<input type="radio" name="tamano" id="Pliego" value="Pliego">
 					<label for="Pliego">Pliego</label>
 					<br>
-					<input type="radio" name="tamaño" id="Medio" value="Medio">
+					<input type="radio" name="tamano" id="Medio" value="Medio">
 					<label for="Medio">Medio pliego</label>
 					<br>
-					<input type="radio" name="tamaño" id="Cuarto" value="Cuarto">
+					<input type="radio" name="tamano" id="Cuarto" value="Cuarto">
 					<label for="Cuarto">Cuarto pliego</label>
 					<br>
-					<input type="radio" name="tamaño" id="Octavo" value="Octavo">
+					<input type="radio" name="tamano" id="Octavo" value="Octavo">
 					<label for="Octavo">Octavo pliego</label>
 					<br>
-					<input type="radio" name="tamaño" id="Oficio" value="Oficio">
+					<input type="radio" name="tamano" id="Oficio" value="Oficio">
 					<label for="Oficio">Oficio</label>
 					<br>
-					<input type="radio" name="tamaño" id="Carta" value="Carta">
+					<input type="radio" name="tamano" id="Carta" value="Carta">
 					<label for="Carta">Carta</label>
 					<br><br>
 					<label>Indique dimensiones</label>
 					<label>Ancho</label>
-					<input type="text" name="ancho>"
+					<input type="text" name="ancho" id="Ancho">
 					<label>Alto</label>
-					<input type="text" name="alto">
+					<input type="text" name="alto" id="Alto">
 				</fieldset>
 				<fieldset class="fieldset_1"> 
 					<legend class="legend_2">Ajuste de color</legend>
@@ -95,34 +98,34 @@
 				</fieldset>
 				<fieldset class="fieldset_1"> 
 					<legend class="legend_2">Porcentaje de color</legend>
-					<input type="radio" name="P_color" id="PC_10" value="10">
+					<input type="radio" name="P_color" id="PC_10" value="10" disabled>
 					<label for="PC_10">10 %</label>
 					<br>
-					<input type="radio" name="P_color" id="PC_20" value="20">
+					<input type="radio" name="P_color" id="PC_20" value="20" disabled>
 					<label for="PC_20">20 %</label>
 					<br>
-					<input type="radio" name="P_color" id="PC_30" value="30">
+					<input type="radio" name="P_color" id="PC_30" value="30" disabled>
 					<label for="PC_30">30 %</label>
 					<br>
-					<input type="radio" name="P_color" id="PC_40" value="40">
+					<input type="radio" name="P_color" id="PC_40" value="40" disabled>
 					<label for="PC_40">40 %</label>
 					<br>
-					<input type="radio" name="P_color" id="PC_50" value="50">
+					<input type="radio" name="P_color" id="PC_50" value="50" disabled>
 					<label for="PC_50">50 %</label>
 					<br>
-					<input type="radio" name="P_color" id="PC_60" value="60">
+					<input type="radio" name="P_color" id="PC_60" value="60" disabled>
 					<label for="PC_60">60 %</label>
 					<br>
-					<input type="radio" name="P_color" id="PC_70" value="70">
+					<input type="radio" name="P_color" id="PC_70" value="70" disabled>
 					<label for="PC_70">70 %</label>
 					<br>
-					<input type="radio" name="P_color" id="PC_80" value="80">
+					<input type="radio" name="P_color" id="PC_80" value="80" disabled>
 					<label for="PC_80">80 %</label>
 					<br>
-					<input type="radio" name="P_color" id="PC_90" value="90">
+					<input type="radio" name="P_color" id="PC_90" value="90" disabled>
 					<label for="PC_90">90 %</label>
 					<br>
-					<input type="radio" name="P_color" id="PC_100" value="100">
+					<input type="radio" name="P_color" id="PC_100" value="100" disabled>
 					<label for="PC_100">100 %</label>
 				</fieldset>
 				<fieldset class="fieldset_1">

@@ -104,30 +104,6 @@ var http_request = false;
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-//Es llamada desde Impresion.php
-    function llamar_PresupuestoPlotter(){
-        A=document.formImpre.papel.value;//se inserta el tipo de papel
-        B=document.formImpre.tamaño.value;//se insertan el tamaño de papel
-        C=document.formImpre.color.value;//se insertan si es a color o monocromatico
-        var url="../controlador/recibe_impresion.php?val_1=" + A + "&val_2=" + B + "&val_3=" + C;
-        http_request.open('GET',url,true);     
-        peticion.onreadystatechange = respuesta_PresupuestoPlotter;
-        peticion.setRequestHeader("content-type","application/x-www-form-urlencoded");
-        peticion.send("null");
-    }                                                           
-    function respuesta_PresupuestoPlotter(){
-        if (peticion.readyState == 4){
-            if (peticion.status == 200){
-                document.getElementById('MostrarImpresion').innerHTML=peticion.responseText;//se recoje el resultado de la consulta
-            } 
-            else{
-                alert('Hubo problemas con la petición.');
-            }
-        }
-    }
-
-//-------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------
 //Es llamada desde Transferencias.php
     function llamar_Transferencia(){
         A=document.getElementById("EnvioAjax").value;
@@ -231,6 +207,61 @@ function llamar_datosTransferencia(nombre){
     }
 }
 
-//
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------ 
+//Es llamada desde CorteVinilo.php
+function llamar_PresupuestoAdhesivo(){
+    A=document.formEstam.color.value;//se inserta el color 
+    B=document.getElementById("Ancho").value;//se inserta el ancho 
+    C=document.getElementById("Largo").value;//se inserta el largo 
+    D=document.formEstam.tiempo.value;//se insertan los minutos 
+    E=document.getElementById("TiempoVariado").value;//se inserta el largo 
+    F=document.formEstam.tipo.value;//se inserta el tipo de vinilo 
+    G=document.formEstam.anchoRollo.value;//se inserta el tipo de vinilo 
+    var url="../controlador/recibe_corteVinilo.php?val_1=" + A + "&val_2=" + B + "&val_3=" + C + "&val_4=" + D + "&val_5=" + E + "&val_6=" + F + "&val_7=" + G;
+    http_request.open('GET',url,true);     
+    peticion.onreadystatechange = respuesta_PresupuestoAdhesivo;
+    peticion.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    peticion.send("null");
+}                                                           
+function respuesta_PresupuestoAdhesivo(){
+    if (peticion.readyState == 4){
+        if (peticion.status == 200){
+            document.getElementById('MostrarPresupuesto').innerHTML=peticion.responseText;//se recoje el resultado de la consulta
+        } 
+        else{
+            alert('Hubo problemas con la petición.');
+        }
+    }
+}
 
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------ 
+//Es llamada desde Impresion.php
+function llamar_PresupuestoPlotter(){
+    A=document.formImpre.papel.value;//se inserta el tipo de papel 
+    B=document.formImpre.tamano.value;;//se inserta el tamaño de papel
+    C=document.getElementById("Ancho").value;//se inserta el ancho de papel 
+    D=document.getElementById("Alto").value;//se inserta el alto de papel 
+    E=document.formImpre.color.value;//se inserta el color o monocromatico de la impresion
+    F=document.formImpre.P_color.value;//se inserta el % de color de la impresion 
+    var url="../controlador/recibe_impresion.php?val_1=" + A + "&val_2=" + B + "&val_3=" + C + "&val_4=" + D + "&val_5=" + E + "&val_6=" + F;
+    http_request.open('GET',url,true);     
+    peticion.onreadystatechange = respuesta_PresupuestoPlotter;
+    peticion.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    peticion.send("null");
+}                                                           
+function respuesta_PresupuestoPlotter(){
+    if(peticion.readyState == 4){
+        if (peticion.status == 200){
+            document.getElementById('MostrarImpresion').innerHTML=peticion.responseText;//se recoje el resultado de la consulta
+        } 
+        else{
+            alert('Hubo problemas con la petición.');
+        }
+    }
+}
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
     

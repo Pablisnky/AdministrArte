@@ -36,7 +36,7 @@ $ID_Transferencia= $_GET["ID_Transferencia"];//Se recibe desde mostrarTransferen
                 <br>
                 <label>Transferir a Proveedor</label>
                 <input type="text"  value="<?php echo $TrasferirProveedor;?>">
-                <br>
+                <br><br>
                 <label>Utilidad</label>
                 <input type="text"  value="<?php echo $Utilidad;?>">
                 <br>

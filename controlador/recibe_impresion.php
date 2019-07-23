@@ -1,74 +1,306 @@
 <?php
-// el calculo esta basado en precio del cm2 de material, tiempo de diseño, montaje en la computadora, corte en cameo, la hora minima de un salario basico es de : 
-	$Papel= $_GET["val_1"];
-	$Tamaño= $_GET["val_2"];
-	$Color= $_GET["val_3"];
+    $Tipo_Papel= $_GET["val_1"];
+    $Formato_Papel= $_GET["val_2"];
+    $Ancho_Papel= $_GET["val_3"] != "" ? $Ancho_Papel= $_GET["val_3"] : $Ancho_Papel= "sin asignar" ;
+    $Largo_Papel= $_GET["val_4"] != "" ? $Largo_Papel= $_GET["val_4"] : $Largo_Papel= "sin asignar" ;
+    $Color_Impresion= $_GET["val_5"] != "" ? $Porcentaje_Color= $_GET["val_5"] : $Porcentaje_Color= "sin asignar" ;
+    $Porcentaje_Color= $_GET["val_6"] != "" ? $Porcentaje_Color= $_GET["val_6"] : $Porcentaje_Color= "sin asignar" ;
 
-	echo "Papel= " . $Papel . "<br>";
-	echo "Tamaño= " . $Tamaño . "<br>";
-	echo "Color= " . $Color . "<br>";
-exit();
+    // echo "Tipo de papel= " . $Tipo_Papel . "<br>";
+    // echo "Formato de papel= " . $Formato_Papel . "<br>";
+    // echo "Ancho de papel= " . $Ancho_Papel . "<br>";
+    // echo "Largo de papel= " . $Largo_Papel . "<br>";
+    // echo "Color impresion= " . $Color_Impresion . "<br>";
+    // echo "Porcentaje de color= " . $Porcentaje_Color . "<br>";
+
 //Precio de la impresion según el papel 
-	switch($Papel){
-	    case "Bond": 
-	    case "Bond_Adhesivo":     
-        case "Opalina":
-        case "Propalcote": 
-        case "Periodico": 
-        case "Kraft":
-        case "Pergamino":
-	        $Papel= 8; //   8$ (incluye envio desde Cucuta)
-	    break;
-    }
-   
-//Precio de la impresion según el tamaño 
-switch($Tamano){
-    case "A0 ": 
-    case "A1":     
-    case "A3":
-    case "A4": 
-    case "Pliego": 
-    case "Medio":
-    case "Cuarto":
-        $Tamano= 8; //   8$(incluye envio desde Cucuta)
-    break;
-    case "Octavo": 
-        $Tamano= 9; //   9$
-    break;
-    case "Oficio": 
-        $Tamano= 9; //   9$
-    break;
-    case "Carta": 
-        $Tamano= 9; //   9$
-    break;
-}    
- //Precio de la impresion según el color
-switch($Color){
-    case "color": 
-        $Color= 9; //   9$
-    break;
-    case "monocromatico": 
-        $Color= 9; //   9$
-    break;
-}      
+        switch($Tipo_Papel){
+            case "Bond": 
+                switch($Formato_Papel){
+                    case "A0":   
+                        $Precio= 2;
+                    break;   
+                    case "A1": 
+                        $Precio= 9; 
+                    break;     
+                    case "A3":
+                        $Precio= 9; 
+                    break;  
+                    case "A4": 
+                        $Precio= 9; 
+                    break;  
+                    case "Pliego": 
+                        $Precio= 709; 
+                    break;  
+                    case "Medio":
+                        $Precio= 9; 
+                    break;  
+                    case "Cuarto":
+                        $Precio= 8; 
+                    break;
+                    case "Octavo": 
+                        $Precio= 9; 
+                    break;
+                    case "Oficio": 
+                        $Precio= 9; 
+                    break;
+                    case "Carta": 
+                        $Precio= 9; 
+                    break;
+                } 
+            case "Bond_Adhesivo":  
+                switch($Formato_Papel){
+                    case "A0":   
+                        $Precio= 9;
+                    break;   
+                    case "A1": 
+                        $Precio= 9; 
+                    break;     
+                    case "A3":
+                        $Precio= 9; 
+                    break;  
+                    case "A4": 
+                        $Precio= 9; 
+                    break;  
+                    case "Pliego": 
+                        $Precio= 9; 
+                    break;  
+                    case "Medio":
+                        $Precio= 9; 
+                    break;  
+                    case "Cuarto":
+                        $Precio= 8; 
+                    break;
+                    case "Octavo": 
+                        $Precio= 9; 
+                    break;
+                    case "Oficio": 
+                        $Precio= 9; 
+                    break;
+                    case "Carta": 
+                        $Precio= 9; 
+                    break;
+                }     
+            case "Opalina": 
+                switch($Formato_Papel){
+                    case "A0":   
+                        $Precio= 9;
+                    break;   
+                    case "A1": 
+                        $Precio= 9; 
+                    break;     
+                    case "A3":
+                        $Precio= 9; 
+                    break;  
+                    case "A4": 
+                        $Precio= 9; 
+                    break;  
+                    case "Pliego": 
+                        $Precio= 9; 
+                    break;  
+                    case "Medio":
+                        $Precio= 9; 
+                    break;  
+                    case "Cuarto":
+                        $Precio= 8; 
+                    break;
+                    case "Octavo": 
+                        $Precio= 9; 
+                    break;
+                    case "Oficio": 
+                        $Precio= 9; 
+                    break;
+                    case "Carta": 
+                        $Precio= 9; 
+                    break;
+                }     
+            case "Propalcote":  
+                switch($Formato_Papel){
+                    case "A0":   
+                        $Precio= 9;
+                    break;   
+                    case "A1": 
+                        $Precio= 9; 
+                    break;     
+                    case "A3":
+                        $Precio= 9; 
+                    break;  
+                    case "A4": 
+                        $Precio= 9; 
+                    break;  
+                    case "Pliego": 
+                        $Precio= 9; 
+                    break;  
+                    case "Medio":
+                        $Precio= 9; 
+                    break;  
+                    case "Cuarto":
+                        $Precio= 8; 
+                    break;
+                    case "Octavo": 
+                        $Precio= 9; 
+                    break;
+                    case "Oficio": 
+                        $Precio= 9; 
+                    break;
+                    case "Carta": 
+                        $Precio= 9; 
+                    break;
+                }     
+            case "Periodico":  
+                switch($Formato_Papel){
+                    case "A0":   
+                        $Precio= 9;
+                    break;   
+                    case "A1": 
+                        $Precio= 9; 
+                    break;     
+                    case "A3":
+                        $Precio= 9; 
+                    break;  
+                    case "A4": 
+                        $Precio= 9; 
+                    break;  
+                    case "Pliego": 
+                        $Precio= 9; 
+                    break;  
+                    case "Medio":
+                        $Precio= 9; 
+                    break;  
+                    case "Cuarto":
+                        $Precio= 8; 
+                    break;
+                    case "Octavo": 
+                        $Precio= 9; 
+                    break;
+                    case "Oficio": 
+                        $Precio= 9; 
+                    break;
+                    case "Carta": 
+                        $Precio= 9; 
+                    break;
+                }     
+            case "Kraft": 
+                switch($Formato_Papel){
+                    case "A0":   
+                        $Precio= 9;
+                    break;   
+                    case "A1": 
+                        $Precio= 9; 
+                    break;     
+                    case "A3":
+                        $Precio= 9; 
+                    break;  
+                    case "A4": 
+                        $Precio= 9; 
+                    break;  
+                    case "Pliego": 
+                        $Precio= 9; 
+                    break;  
+                    case "Medio":
+                        $Precio= 9; 
+                    break;  
+                    case "Cuarto":
+                        $Precio= 8; 
+                    break;
+                    case "Octavo": 
+                        $Precio= 9; 
+                    break;
+                    case "Oficio": 
+                        $Precio= 9; 
+                    break;
+                    case "Carta": 
+                        $Precio= 9; 
+                    break;
+                }     
+            case "Pergamino":
+                switch($Formato_Papel){
+                    case "A0":   
+                        $Precio= 9;
+                    break;   
+                    case "A1": 
+                        $Precio= 9; 
+                    break;     
+                    case "A3":
+                        $Precio= 9; 
+                    break;  
+                    case "A4": 
+                        $Precio= 9; 
+                    break;  
+                    case "Pliego": 
+                        $Precio= 9; 
+                    break;  
+                    case "Medio":
+                        $Precio= 9; 
+                    break;  
+                    case "Cuarto":
+                        $Precio= 8; 
+                    break;
+                    case "Octavo": 
+                        $Precio= 9; 
+                    break;
+                    case "Oficio": 
+                        $Precio= 9; 
+                    break;
+                    case "Carta": 
+                        $Precio= 9; 
+                    break;
+                }      
+            break;
+        }   
 
-//Calculo de vinilo por cm2
-	$Area= $Ancho*$Largo;
+//Calculo de papel por cm2
+	// $Area= $Ancho*$Largo;
 	// echo "Area de vinilo= " . $Area . "<br>";
 
 //Valor del minuto de diseño en computadora
 	$FactorTiempo= 150;  //  150$/min
 
 //Valor de la mano de obra(montar en tapete, cortar vinilo, separar silueta, preparar tela para estampar, planchar, etc)
-	$ManoObra= 1.225; //22,5% por mano de obra
+    $ManoObra= 1.225; //22,5% por mano de obra
+    
+// Incremento por impresiones a color
+switch($Color_Impresion){
+    case "monocromatico":   
+        $Precio_Color= 1;
+    break;   
+    case "color":
+        switch($Porcentaje_Color){
+            case "10":   
+                $Precio_Color= $Precio * 1.1;
+            break;   
+            case "20": 
+                $Precio_Color= $Precio * 1.2; 
+            break;     
+            case "30":
+                $Precio_Color= $Precio * 1.3; 
+            break;  
+            case "40": 
+                $Precio_Color= $Precio * 1.4; 
+            break;  
+            case "50": 
+                $Precio_Color= $Precio * 1.5; 
+            break;  
+            case "60":
+                $Precio_Color= $Precio * 1.6; 
+            break;  
+            case "70":
+                $Precio_Color= $Precio * 1.7;
+            break;
+            case "80": 
+                $Precio_Color= $Precio * 1.8;
+            break;
+            case "90": 
+                $Precio_Color= $Precio * 1.9; 
+            break;
+            case "100": 
+                $Precio_Color= $Precio * 2;
+            break;
+        } 
+    break;
+}
 
 //Calculo de presupuesto según datos recibidos
-	if($Tiempo == "N/A"){
-		$Presupuesto= (($Vinilo*$Area)+($FactorTiempo*$TiempoVariado))*$ManoObra;
-		echo $Presupuesto;
-	}
-	else{
-		$Presupuesto= (($Vinilo*$Area)+($FactorTiempo*$Tiempo))*$ManoObra;
-		echo $Presupuesto;		
-	}
+	$Presupuesto= ($Precio*$Precio_Color)*$ManoObra;
+	echo $Presupuesto;		
 ?>

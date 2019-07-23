@@ -6,8 +6,9 @@
 
 	?>
 <div style="float: left; width:80%;">
-    <table class="tabla_1"
+    <table class="tabla_1">
         <thead>
+            <th>ID_Transferencia</th>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Cedula</th>
@@ -24,6 +25,7 @@
 						while($Resultado_1= mysqli_fetch_array($Recordset_1)){  
                             $A= $Resultado_1['ID_Transferencia'] ?>
             <tr>
+                <td><?php echo $Resultado_1['ID_Transferencia'];?></td>
                 <td><?php echo $Resultado_1['nombre'];?></td>
                 <td><?php echo $Resultado_1['apellido'];?></td>
                 <td><?php echo $Resultado_1['cedula'];?></td>

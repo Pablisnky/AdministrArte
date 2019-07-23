@@ -49,7 +49,7 @@
 				<br>
 				<a class="a_2" href="vista/Estampados.php?pagina=Estampados" name="presupuesto" id="EstampadoVinilo" value="Estampado_Vinilo">Estampado Vinilo textil</a>
 				<br>
-				<a class="a_3" href="" name="presupuesto" id="CorteViniloAdhesivo" value="Corte_Vinilo_Adhesivo">Corte Vinilo Adhesivo</a>
+				<a class="a_2" href="vista/CorteVinilo.php?pagina=Corte Vinilo Adhesivo" name="presupuesto" id="CorteViniloAdhesivo" value="Corte_Vinilo_Adhesivo">Corte Vinilo Adhesivo</a>
 				<br>
 				<a class="a_3" href="" name="presupuesto" id="DibujoPlanos" value="Dibujo_Planos">Dibujo de planos</a>
 				<br>

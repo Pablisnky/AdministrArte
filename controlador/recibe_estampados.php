@@ -79,9 +79,6 @@ switch($Tipo){
 	break;
 }
 
-//Precio del vinilo textil según su color (cm2)
-	
-
 //Precio del bifass (cm2) Aplica solo con estampado de tela sobre tela
 	$bifass= 3;  //   3$/cm2
 
