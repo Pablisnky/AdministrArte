@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-07-2019 a las 15:52:51
+-- Tiempo de generación: 23-07-2019 a las 15:39:13
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.1.23
 
@@ -62,7 +62,13 @@ INSERT INTO `cierre_caja` (`ID_CC`, `Fecha_Cierre`, `Monto_Cierre`) VALUES
 (22, '2019-07-09', '28600'),
 (23, '2019-07-10', '3400'),
 (24, '2019-07-11', '3000'),
-(25, '2019-07-12', '10000');
+(25, '2019-07-12', '10000'),
+(26, '2019-07-14', '21000'),
+(27, '2019-07-15', '26000'),
+(28, '2019-07-16', '28000'),
+(29, '2019-07-18', '8000'),
+(30, '2019-07-19', '36000'),
+(31, '2019-07-22', '63500');
 
 -- --------------------------------------------------------
 
@@ -111,6 +117,40 @@ CREATE TABLE `detalles_cuenta_pagar` (
 
 INSERT INTO `detalles_cuenta_pagar` (`ID_DCP`, `ID_CP`, `cuota_amortizada`, `cuota_pendiente`, `total_amortizado`, `total_pendiente`) VALUES
 (2, 9, '0', '12', '0', '1400000');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detalles_inversion`
+--
+
+CREATE TABLE `detalles_inversion` (
+  `ID_DI` int(11) NOT NULL,
+  `ID_CP` int(11) NOT NULL,
+  `inversion` varchar(250) NOT NULL,
+  `fecha` date NOT NULL,
+  `monto_inversion` varchar(9) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `detalles_inversion`
+--
+
+INSERT INTO `detalles_inversion` (`ID_DI`, `ID_CP`, `inversion`, `fecha`, `monto_inversion`) VALUES
+(4, 9, 'Cuchillas Cameo', '2019-07-10', '121500'),
+(5, 9, 'Papel fotografico adhesivo mate', '2019-07-11', '14700'),
+(6, 9, 'Papel fotografico brillante', '2019-07-11', '19500'),
+(7, 9, 'Vinilo textil Glitter gold, 50 cm X 1  m', '2019-07-11', '37000'),
+(8, 9, 'Vinilo textil Flock amarillo, 51cm X 1 m', '2019-07-11', '34000'),
+(9, 9, 'Vinilo textil pu imprimible, 51 cm X 1m', '2019-07-11', '25000'),
+(10, 9, 'Vinilo textil, 2m blanco, 2m negro', '2019-07-11', '92000'),
+(11, 9, 'Vinilo textil color, unidades de 0,5 m diversos colores (10 unidades)', '2019-07-11', '140000'),
+(12, 9, 'Cartuchos de Plotter (2)', '2019-07-12', '580000'),
+(13, 9, 'Papel Decal', '2019-07-12', '13000'),
+(14, 9, 'Rollo papel Pergamino, 90 gr, 76 cm X 50 m', '2019-07-12', '96000'),
+(15, 9, 'Rollo papel Bond 75 gr, 91 cm X 50 m', '2019-07-12', '25823'),
+(16, 9, 'Reparacion de Epson', '2019-07-11', '80000'),
+(17, 9, 'Franelas cotton licra', '2019-07-09', '78000');
 
 -- --------------------------------------------------------
 
@@ -195,14 +235,26 @@ INSERT INTO `gastos` (`ID_Cierre`, `Fecha`, `Descripcion`, `Monto`) VALUES
 (67, '2019-07-09', 'Pan', '2500'),
 (68, '2019-07-09', 'Comida', '17400'),
 (69, '2019-07-10', 'Pan', '2000'),
-(70, '2019-07-11', 'Vinilo textil color', '140000'),
-(71, '2019-07-10', 'Cuchillas CAMEO', '121500'),
-(72, '2019-07-11', '4 m vinilo textil', '92000'),
-(73, '2019-07-11', 'Vinilo textil imprimible', '37000'),
-(74, '2019-07-11', 'Vinilo textil Flock', '25000'),
-(75, '2019-07-11', 'Vinilo textil Glitter', '34000'),
-(76, '2019-07-11', 'Papel fotografico brillante', '19500'),
-(77, '2019-07-11', 'papel fotografico adhesivo mate', '14700');
+(78, '2019-07-14', 'Pan', '2000'),
+(79, '2019-07-14', 'Comida', '19800'),
+(80, '2019-07-13', 'Libre casa Suly hasta apartamento', '5000'),
+(81, '2019-07-15', 'Coca cola', '3500'),
+(82, '2019-07-15', 'Pan', '2000'),
+(83, '2019-07-16', 'Pan', '1000'),
+(84, '2019-07-16', 'Servicio de electricidad (apartamento)', '35000'),
+(85, '2019-07-17', 'Pan', '1000'),
+(86, '2019-07-17', 'Papel higienico', '2000'),
+(87, '2019-07-17', 'claudia', '1000'),
+(88, '2019-07-17', 'envio cartuhos de tinta plotter desde Bogota', '9500'),
+(89, '2019-07-18', 'Laca en spray', '6000'),
+(90, '2019-07-18', 'Hoja de segueta', '2000'),
+(91, '2019-07-18', 'pan', '2000'),
+(92, '2019-07-19', 'agua', '1000'),
+(93, '2019-07-19', 'Factura servicio de agua', '20500'),
+(94, '2019-07-19', 'Comida', '35500'),
+(96, '2019-07-22', 'Pan y yogurt', '29000'),
+(97, '2019-07-22', 'pan', '1000'),
+(98, '2019-07-22', 'Aromatica', '600');
 
 -- --------------------------------------------------------
 
@@ -218,6 +270,18 @@ CREATE TABLE `tasa_transferencia` (
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `tasa_transferencia`
+--
+
+INSERT INTO `tasa_transferencia` (`ID_TT`, `tasa_proveedor`, `incremento`, `tasa_impresionarte`, `fecha`) VALUES
+(7, '0.410', '0.050', '0.460', '2019-07-15'),
+(14, '0.380', '0.050', '0.430', '2019-07-17'),
+(15, '0.365', '0.050', '0.415', '2019-07-18'),
+(16, '0.340', '0.050', '0.390', '2019-07-19'),
+(23, '0.315', '0.050', '0.365', '2019-07-22'),
+(24, '0.315', '0.050', '0.365', '2019-07-22');
+
 -- --------------------------------------------------------
 
 --
@@ -227,14 +291,13 @@ CREATE TABLE `tasa_transferencia` (
 CREATE TABLE `transferencia` (
   `ID_Transferencia` int(11) NOT NULL,
   `ID_Usuario` int(3) NOT NULL,
+  `ID_TT` int(11) NOT NULL,
   `banco` varchar(30) NOT NULL,
   `numero` varchar(30) NOT NULL,
-  `monto` varchar(10) NOT NULL,
-  `Bs_recibe` varchar(6) NOT NULL,
-  `tasa_Proveedor` varchar(6) NOT NULL,
-  `tasa` varchar(5) NOT NULL,
-  `incremento` varchar(4) NOT NULL,
-  `utilidad` varchar(5) NOT NULL,
+  `monto_pesos` varchar(10) NOT NULL,
+  `recibe_Bs` varchar(10) NOT NULL,
+  `transferirProveedor` varchar(10) NOT NULL,
+  `utilidad` varchar(10) NOT NULL,
   `fecha` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -242,9 +305,18 @@ CREATE TABLE `transferencia` (
 -- Volcado de datos para la tabla `transferencia`
 --
 
-INSERT INTO `transferencia` (`ID_Transferencia`, `ID_Usuario`, `banco`, `numero`, `monto`, `Bs_recibe`, `tasa_Proveedor`, `tasa`, `incremento`, `utilidad`, `fecha`) VALUES
-(12, 24, 'Mercantil', '1234', '20000', '', '0.43', '0.48', '0.05', '2323', '2019-07-11 18:22:25'),
-(13, 25, 'Banesco', '444444', '2', '4,17', '', '', '', '', '2019-07-11 18:43:45');
+INSERT INTO `transferencia` (`ID_Transferencia`, `ID_Usuario`, `ID_TT`, `banco`, `numero`, `monto_pesos`, `recibe_Bs`, `transferirProveedor`, `utilidad`, `fecha`) VALUES
+(14, 26, 14, 'Provincial', '01080326840200094975', '30000', '722891', '', '', '2019-07-15 10:07:34'),
+(24, 36, 12, 'Postobon', '333', '50000', '71428.', '', '', '2019-07-15 19:49:52'),
+(28, 40, 14, 'Mercantil', '999999999', '10000', '23255.', '', '', '2019-07-17 22:38:03'),
+(39, 26, 15, 'Provincial', '01080326840200094975', '405000', '975903', '356.204,8', '48.795,18', '2019-07-18 15:36:24'),
+(42, 57, 16, 'Banesco', '01340025310253112791', '336000', '861538.46', '292923.076', '43076.9236', '2019-07-19 11:08:16'),
+(45, 57, 16, 'Banesco', '01340025310253112791', '1', '2.56', '0,87<br>', '0,13', '2019-07-19 11:39:28'),
+(46, 57, 16, 'Banesco', '01340025310253112791', '2', '5.13', '1,74<br>', '0,26', '2019-07-19 11:42:52'),
+(47, 26, 16, 'Provincial', '01080326840200094975', '34000', '87179.49', '29.641,03', '4.358,97', '2019-07-22 09:26:31'),
+(48, 26, 17, 'Provincial', '01080326840200094975', '34000', '89473.68', '29.526,31', '4.473,69', '2019-07-22 12:07:11'),
+(49, 40, 17, 'Mercantil', '01050062101062261763', '5000', '13157.89', '4.342,10', '657,90', '2019-07-22 14:35:46'),
+(50, 40, 23, 'Mercantil', '999999999', '5000', '13698.63', '4.315,07', '684,93', '2019-07-22 15:09:29');
 
 -- --------------------------------------------------------
 
@@ -266,8 +338,11 @@ CREATE TABLE `usuariotransferencia` (
 --
 
 INSERT INTO `usuariotransferencia` (`ID_UT`, `nombre`, `apellido`, `cedula`, `telefono`, `aleatorio`) VALUES
-(24, 'Pablo', 'Cabeza', '12728036', '04143541194', '331042661'),
-(25, 'Silvia', 'Noriega', '147089955', '3333333', '270618770');
+(26, 'Edimar', 'Maldonado', '14075283', '3206301720', '830477721'),
+(36, 'Postobon', 'Postobon', '222', '333', '172732290'),
+(40, 'PAblo', 'Cabeza', '12728036', '123', '639134024'),
+(43, 'Vicente', 'Carrillo', '19668848', '', '295189486'),
+(57, 'Vicente', 'Carrillo', '19668948', '', '22670698');
 
 --
 -- Índices para tablas volcadas
@@ -296,6 +371,12 @@ ALTER TABLE `cuentas_pagar`
 --
 ALTER TABLE `detalles_cuenta_pagar`
   ADD PRIMARY KEY (`ID_DCP`);
+
+--
+-- Indices de la tabla `detalles_inversion`
+--
+ALTER TABLE `detalles_inversion`
+  ADD PRIMARY KEY (`ID_DI`);
 
 --
 -- Indices de la tabla `diezmos`
@@ -341,7 +422,7 @@ ALTER TABLE `banco`
 -- AUTO_INCREMENT de la tabla `cierre_caja`
 --
 ALTER TABLE `cierre_caja`
-  MODIFY `ID_CC` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `ID_CC` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `cuentas_pagar`
@@ -356,6 +437,12 @@ ALTER TABLE `detalles_cuenta_pagar`
   MODIFY `ID_DCP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT de la tabla `detalles_inversion`
+--
+ALTER TABLE `detalles_inversion`
+  MODIFY `ID_DI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
 -- AUTO_INCREMENT de la tabla `diezmos`
 --
 ALTER TABLE `diezmos`
@@ -365,25 +452,25 @@ ALTER TABLE `diezmos`
 -- AUTO_INCREMENT de la tabla `gastos`
 --
 ALTER TABLE `gastos`
-  MODIFY `ID_Cierre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `ID_Cierre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT de la tabla `tasa_transferencia`
 --
 ALTER TABLE `tasa_transferencia`
-  MODIFY `ID_TT` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_TT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `transferencia`
 --
 ALTER TABLE `transferencia`
-  MODIFY `ID_Transferencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID_Transferencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT de la tabla `usuariotransferencia`
 --
 ALTER TABLE `usuariotransferencia`
-  MODIFY `ID_UT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `ID_UT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
